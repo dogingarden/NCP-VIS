@@ -1,0 +1,11 @@
+{
+  "app.containers.HomePage.firstSlide": "疫情简介",
+  "app.containers.HomePage.secondSlide": "可视展示",
+  "app.containers.HomePage.thirdSlide": "关于我们",
+  "app.containers.HomePage.fourthSlide": "关于我们",
+  "app.containers.HomePage.title": "万众「疫」心，战「疫」行动",
+  "app.containers.HomePage.desc": "新型冠状病毒肺炎是一种急性感染性肺炎，其病原体是一种先前未在人类中发现的新型冠状病毒，即2019新型冠状病毒。2020年2月7日，国家卫健委决定将“新型冠状病毒感染的肺炎”暂命名为“新型冠状病毒肺炎”，简称“新冠肺炎”。英文名称为“Novel Coronavirus Pneumonia”，简称“NCP”。2月11日，世界卫生组织（WHO）将其命名为2019冠状病毒病，英文名称为Corona Virus Disease 2019（COVID-19）。",
+  "app.containers.LocaleToggle.zh": "中文",
+  "app.containers.LocaleToggle.en": "ENGLISH",
+  "app.containers.NotFoundPage.header": "Page not found."
+}

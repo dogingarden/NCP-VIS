@@ -1,0 +1,28 @@
+body{
+    overflow: hidden;
+}
+@font-face{
+    font-family: 'Times-Bold-Italic';
+    src:url("./Times New Roman Bold Italic.ttf");
+}
+@font-face{
+    font-family: 'SourceHanSansCN-Medium';
+    src:url("./SourceHanSansCN-Medium.otf");
+}
+@font-face{
+    font-family: 'SourceHanSerifCN-Medium';
+    src:url("./SourceHanSerifCN-Medium.otf");
+}
+@font-face{
+    font-family: 'SourceHanSerifCN-Regular';
+    src:url("./SourceHanSerifCN-Regular.otf");
+}
+@font-face{
+    font-family: 'SourceHanSansCN-Bold';
+    src:url("./SourceHanSansCN-Bold.otf");
+}
+@font-face{
+    font-family: 'SourceHanSerifCN-Bold';
+    src:url("./SourceHanSerifCN-Bold.otf");
+}
+  

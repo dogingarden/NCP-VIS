@@ -1,0 +1,60 @@
+
+/* .notselected { font-weight: normal; text-decoration: underline; cursor: pointer; color: #91B6D4; }
+.notselected:hover { color: #F9786C; } */
+#select-city{
+    /* position: fixed; */
+
+    width:130px; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: inline-block; 
+    position: absolute; 
+    z-index: 100; 
+    left: 0px; 
+    top: 30px; 
+}
+#select-data{
+    width:130px; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: inline-block; 
+    position: absolute; 
+    z-index: 1100; 
+    left: 110px; 
+    top: 30px; 
+}
+#select-date{
+    width:130px; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: inline-block; 
+    position: absolute; 
+    z-index: 1100; 
+    left: 110px; 
+    top: 30px; 
+}
+#select-province{
+    position: absolute; 
+    top: 924px; 
+    left: 0; 
+    font-size: 9px; 
+    width:130px;
+}
+
+.Select-control {
+    background-color: #aeaeae;
+}
+.Select-placeholder, .Select--single > .Select-control .Select-value {
+
+    color: #000000;
+}
+strong{
+    font-size: 14px;
+}
+#about a{
+    font-size: 14px;
+}
+
