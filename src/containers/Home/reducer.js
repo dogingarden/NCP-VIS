@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-20 10:33:38
  * @LastEditors: konglingyuan
- * @LastEditTime : 2020-02-14 23:53:00
+ * @LastEditTime: 2020-02-18 12:17:42
  */
 import { fromJS } from 'immutable'
 
@@ -31,8 +31,8 @@ const initialState = fromJS({
   chinaTopoJson: null,
   isFetching: true,
   bgType: "GEO",
-  centerCity: "北京市",
-  dataType: "GDP",
+  centerCity: "武汉市",
+  dataType: "cum_dx",
   selectProvince: null,
   dates: null,
   selectedDate: null

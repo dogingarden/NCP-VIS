@@ -27,6 +27,10 @@ class Header extends Component {
 		          <li>
 		            <span>圆形面积:</span>
 		            {" "}
+					<FilterType filter="cum_dx" {...{dataType}}>
+				      确诊病例
+				    </FilterType>
+				    {"/ "}
 				    <FilterType filter="POP" {...{dataType}}>
 				      人口
 				    </FilterType>

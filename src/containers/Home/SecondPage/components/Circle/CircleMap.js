@@ -29,7 +29,7 @@ class CircleMap extends Component {
     // Re-center the geo projection
     // Update domain of quantize scale
     updateD3(props) {
-        const {chinaTopoJson,width,height}=props
+        const {chinaTopoJson,width,height,handleChangeCernter}=props
         this.projection = d3.geoMercator()
             .scale(1)
             .translate([0, 0]);
@@ -59,13 +59,20 @@ class CircleMap extends Component {
                 this.centerCity=d;
             }
         });
-
+        // console.log(props.centerCity)
+        // //如果没有该中心节点，就重置中心节点
+        // if(this.centerCity==={}){
+        //     handleChangeCernter("北京")
+        //     
+        //     return;
+        // }
         data.sort((city1,city2)=>{
             return this.getDisance(city1.lat,city1.lon,this.centerCity.lat,this.centerCity.lon)-this.getDisance(city2.lat,city2.lon,this.centerCity.lat,this.centerCity.lon);
 
         });
         //计算每个点与选中点的距离
         let distance = data.map((city)=>{
+
             return Math.abs(city[props.dataType]-this.centerCity[props.dataType]);
         });
         let max=d3.min([props.width / 2 - 90, props.height / 2 - 90])
@@ -96,7 +103,6 @@ class CircleMap extends Component {
             d.radius=scale(Math.sqrt(d[attr]));
             return d;
         });
-        console.log(data.length)
         return data;
     }
 

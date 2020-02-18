@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-16 22:09:44
+ * @LastEditTime: 2020-02-18 12:42:12
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
@@ -34,7 +34,6 @@ class CircleVis extends Component{
         const { projection, bgType, centerCity, height, width, selectedProvince, dataType ,handleChangeCernter} = this.props;
 
         this.container = d3.select(ReactDOM.findDOMNode(this.refs.container));
-        
         let circles=this.container.selectAll("circle")
               .data(this.props.data, function(d) { return d.city; });
         //选择城市#fcd40d 选择省cce097 一般 2095d2
@@ -69,17 +68,12 @@ class CircleVis extends Component{
             .on("click", d=>{handleChangeCernter(d.city)})
             .on("mouseover", (d, i) => {
 
-                var labelbackground = d3.select(this.parentNode)
+                var labelbackground = this.container
                     .append('text')
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
-                    .text(()=>{if(dataType==="POP"){
-                            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-                        }else if(dataType==="GDP"){
-                            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-                        }else if(dataType==="GDP_POP"){
-                            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-                        }
+                    .text(()=>{
+                        return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
                     .style('font-size', '16px')
@@ -91,18 +85,13 @@ class CircleVis extends Component{
                     .attr('dy', function() { return -d.radius; })
                     .style('fill', 'none')
 
-                var labelforeground = d3.select(this.parentNode)
+                var labelforeground = this.container
                     .append('text')
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
                     // .text(function() { return d.city; })
-                    .text(()=>{if(dataType==="POP"){
-                            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-                        }else if(dataType==="GDP"){
-                            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-                        }else if(dataType==="GDP_POP"){
-                            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-                        }
+                    .text(()=>{
+                        return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
                     .style('font-size', '16px')
@@ -176,15 +165,21 @@ class CircleVis extends Component{
                
         }
         else if(bgType==="RADIAL"){
-            enter.attr('cx', d=> { return d.distance*Math.cos(d.rotate)+width/2;})
-                .attr('cy', d=>{return d.distance*Math.sin(d.rotate)+height/2;})
+            enter.attr('cx', d=> { 
+                
+                return d.distance*Math.cos(d.rotate)+width/2;})
+                .attr('cy', d=>{
+                    // console.log(d.distance*Math.sin(d.rotate)+height/2)
+                    return d.distance*Math.sin(d.rotate)+height/2;})
             circles.merge(enter)
                 .attr('class', 'item')
                 
             .transition().duration(1000)
                 .attr('r',  d=> { return d.radius; })
                 .attr('cx', d=> { return d.distance*Math.cos(d.rotate)+width/2;})
-                .attr('cy', d=>{return d.distance*Math.sin(d.rotate)+height/2;})
+                .attr('cy', d=>{
+                    // console.log(d.distance*Math.sin(d.rotate)+height/2)
+                    return d.distance*Math.sin(d.rotate)+height/2;})
                 .style("fill",d=>{
                     let color =normalColor;
                     if(d.province===selectedProvince){
@@ -212,13 +207,8 @@ class CircleVis extends Component{
         let barContainer=d3.select("#select-data").select("svg");
 
         barContainer.select("text")
-            .text(d=>{if(dataType==="POP"){
-                    return "人口："+d3.format(",")(parseInt(centerCity.POP))+"万";
-                }else if(dataType==="GDP"){
-                    return "GDP："+d3.format(",")(parseInt(centerCity.GDP))+"亿";
-                }else if(dataType==="GDP_POP"){
-                    return "人均GDP："+d3.format(",")(parseInt(centerCity.GDP_POP))+"万";
-                }
+            .text(d=>{
+                return this.getBarText(dataType,centerCity)
             });   
         barContainer.select("rect")
             .transition()
@@ -226,19 +216,15 @@ class CircleVis extends Component{
             .attr("width",d=>{ return barX(centerCity[dataType]); });
 
         circles
-            .on("mouseover", function(d, i) {
-
-                var labelbackground = d3.select(this.parentNode)
+            .on("mouseover", (d, i) => {
+                console.log(d3.select(this.parentNode))
+                var labelbackground = this.container
                     .append('text')
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
-                    .text(()=>{if(dataType==="POP"){
-                            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-                        }else if(dataType==="GDP"){
-                            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-                        }else if(dataType==="GDP_POP"){
-                            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-                        }
+                    .text(()=>{
+                        console.log(d)
+                        return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
                     .style('font-size', '16px')
@@ -250,17 +236,12 @@ class CircleVis extends Component{
                     .attr('dy', function() { return -d.radius-5; })
                     .style('fill', 'none')
 
-                var labelforeground = d3.select(this.parentNode)
+                var labelforeground = this.container
                     .append('text')
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
-                    .text(()=>{if(dataType==="POP"){
-                            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-                        }else if(dataType==="GDP"){
-                            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-                        }else if(dataType==="GDP_POP"){
-                            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-                        }
+                    .text(()=>{
+                        return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
                     .style('font-size', '16px')
@@ -304,6 +285,30 @@ class CircleVis extends Component{
         
 
     }
+    getBarText(dataType,centerCity){
+        if(dataType==="POP"){
+            return "人口："+d3.format(",")(parseInt(centerCity.POP))+"万";
+        }else if(dataType==="GDP"){
+            return "GDP："+d3.format(",")(parseInt(centerCity.GDP))+"亿";
+        }else if(dataType==="GDP_POP"){
+            return "人均GDP："+d3.format(",")(parseInt(centerCity.GDP_POP))+"万";
+        }else if(dataType==="cum_dx"){
+            return "确诊病例："+d3.format(",")(parseInt(centerCity.cum_dx))+"人";
+        }
+    }
+    getMouseOverText(d,dataType){
+        
+        if(dataType==="POP"){
+            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
+        }else if(dataType==="GDP"){
+            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
+        }else if(dataType==="GDP_POP"){
+            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
+        }else if(dataType==="cum_dx"){
+            
+            return d.city+"确诊病例："+d3.format(",")(parseInt(d.cum_dx))+"人";
+        }
+    }
     componentDidMount(){
 
         const {projection, bgType, centerCity, width, height,dataType, handleChangeCernter} = this.props;
@@ -326,13 +331,8 @@ class CircleVis extends Component{
 
         this.barContainer.append("text")
             .attr("transform","translate(0,12)")
-            .text(d=>{if(dataType==="POP"){
-                    return "人口："+d3.format(",")(parseInt(centerCity.POP))+"万";
-                }else if(dataType==="GDP"){
-                    return "GDP："+d3.format(",")(parseInt(centerCity.GDP))+"亿";
-                }else if(dataType==="GDP_POP"){
-                    return "人均GDP："+d3.format(",")(parseInt(centerCity.GDP_POP))+"万";
-                }
+            .text(d=>{
+                return this.getBarText(dataType,centerCity)
             })
             .attr("text-anchor","start")
             .attr("alignment-baseline","middle");
@@ -360,19 +360,14 @@ class CircleVis extends Component{
             .style("opacity", opacity)
             .on("click",d=>{handleChangeCernter(d.city)})
 
-            .on("mouseover", function(d, i) {
+            .on("mouseover", (d, i) => {
 
                 var labelbackground = d3.select(this.parentNode)
                     .append('text')
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
-                    .text(()=>{if(dataType==="POP"){
-                            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-                        }else if(dataType==="GDP"){
-                            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-                        }else if(dataType==="GDP_POP"){
-                            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-                        }
+                    .text(()=>{
+                        return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
                     .style('font-size', '16px')
@@ -389,13 +384,8 @@ class CircleVis extends Component{
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
                     // .text(function() { return d.city; })
-                    .text(()=>{if(dataType==="POP"){
-                            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-                        }else if(dataType==="GDP"){
-                            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-                        }else if(dataType==="GDP_POP"){
-                            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-                        }
+                    .text(()=>{
+                        return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
                     .style('font-size', '16px')

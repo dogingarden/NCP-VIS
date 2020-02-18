@@ -43,7 +43,6 @@ const SelectDate = createClass({
 
     const { multi, multiValue } = this.state;
     const { dates, selectedDate } = this.props;
-    console.log(selectedDate)
     const seDate={ value: selectedDate, label: selectedDate };
     return (
       <div  id="select-date" width={500}>

@@ -36,27 +36,35 @@ class App extends React.Component {
             } = this.props
         const width=svgWidth
         const height=svgHeight
-        
+        let ifHas=false 
+        citiesData.forEach(d=>{
+            if(d.city===centerCity){
+                ifHas=true
+            }
+        });
+        if(ifHas===false){
+            changeCenter("武汉市")
+        }
         return (
-          <Wrapper >
-              <Header 
-                  { ...{citiesData, centerCity, changeCenter, selectProvince ,bgType, dataType,dates,selectedDate,selectDate}}/>
-
-              <div className="svgContainer" ref={this.myRef}>
-                <svg {...{width,height}} >
-                  
-                    <Background {...{chinaTopoJson,bgType}}
-                        {...{width,height}}
-                    />            
-                    <CircleMap  {...{citiesData, bgType, dataType, centerCity , selectedProvince, chinaTopoJson, selectedDate}}
-                        handleChangeCernter = {changeCenter}
-                        x={0}
-                        y={0}
-                        {...{width,height}}
-                        />
-                </svg> 
-              </div>
-          </Wrapper>
+            <Wrapper >
+                <Header 
+                    { ...{citiesData, centerCity: ifHas===false?"武汉市" : centerCity, changeCenter, selectProvince ,bgType, dataType,dates,selectedDate,selectDate}}/>
+  
+                <div className="svgContainer" ref={this.myRef}>
+                  <svg {...{width,height}} >
+                    
+                      <Background {...{chinaTopoJson,bgType}}
+                          {...{width,height}}
+                      />            
+                      <CircleMap  {...{citiesData, bgType, dataType, centerCity: ifHas===false?"武汉市" : centerCity , selectedProvince, chinaTopoJson, selectedDate}}
+                          handleChangeCernter = {changeCenter}
+                          x={0}
+                          y={0}
+                          {...{width,height}}
+                          />
+                  </svg> 
+                </div>
+            </Wrapper>
         );
     }
 }
