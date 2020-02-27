@@ -1,0 +1,3 @@
+[0218/194231.442:ERROR:file_io.cc(134)] WriteFile: 磁盘空间不足。 (0x70)
+[0218/194231.446:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\andy\AppData\Local\Google\Chrome\User Data\Crashpad\reports\53c23849-f3de-4f55-ac7e-d1ca809660af.dmp: 另一个程序正在使用此文件，进程无法访问。 (0x20)
+[0218/194251.199:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: 管道已结束。 (0x6D)

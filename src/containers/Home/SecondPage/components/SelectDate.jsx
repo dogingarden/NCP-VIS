@@ -4,6 +4,17 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 const centerColor="#fcd40d";
+const colourStyles = {
+
+  clearIndicator:  (provided) => ({
+    ...provided,
+    padding: 0
+  }),
+  dropdownIndicator:  (provided) => ({
+    ...provided,
+    padding: 0
+  }),
+};
 const SelectDate = createClass({
   displayName: 'SelectDate',
 
@@ -38,6 +49,13 @@ const SelectDate = createClass({
   renderValue: function(option) {
     return <strong style={{ color: centerColor }}>{option.label}</strong>;
   },
+  handleScroll(e) {
+    // 阻止合成事件的冒泡
+    e.stopPropagation();
+    // 阻止与原生事件的冒泡
+    e.nativeEvent.stopImmediatePropagation();
+  },
+  
   render () {
     
 
@@ -45,15 +63,16 @@ const SelectDate = createClass({
     const { dates, selectedDate } = this.props;
     const seDate={ value: selectedDate, label: selectedDate };
     return (
-      <div  id="select-date" width={500}>
+      <div id="select-date" width={500} 
+        onWheel={(e) => this.handleScroll(e)}
+      >
     
         <Select
           multi={multi}
+          styles={colourStyles}
           options={this.getOptions(dates)}
-          // options={options}
           openMenuOnClick={true}
           onChange={this.handleOnChange}
-          // valueRenderer={this.renderValue}
           value={multi ? multiValue : seDate}
         />
         {/* <div className="hint">{this.props.hint}</div> */}

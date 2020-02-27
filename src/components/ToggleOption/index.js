@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /*
  * @Author: konglingyuan
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 21:51:30
- * @LastEditors  : konglingyuan
- * @LastEditTime : 2020-02-13 23:31:11
+ * @LastEditors: konglingyuan
+ * @LastEditTime: 2020-02-21 00:24:21
  */
 
 import React from 'react';
@@ -12,6 +13,7 @@ import { injectIntl } from 'react-intl';
 import Wrapper from './Wrapper';
 
 const ToggleOption = ({ value, message, intl, onToggle }) => (
+  // eslint-disable-next-line react/jsx-no-comment-textnodes
   <Wrapper value={value} onClick={() => onToggle(value)}>
     <a value={value} type="button">
       <span className={`flag flag-${value}`} />

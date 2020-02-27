@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime : 2020-02-15 17:18:03
+ * @LastEditTime: 2020-02-23 17:09:00
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     & li span { display: inline-block; text-align: right; margin-right: 5px; }
     & .active { color: #000; font-weight: bold; text-decoration: none; cursor: default; }
     & .active:hover { text-decoration: none; color: #000; }
-    & #selectorcontainer { width: 1000px; text-align: right; margin: auto auto; position: relative; } 
+    
     & #about { position: absolute; top: 924px; right: 0; font-size: 9px; }
     & #about a, #about a:link, #about a:active { font-weight: normal; text-decoration: none; cursor: pointer; color: #000; }
     & #about a:hover { 

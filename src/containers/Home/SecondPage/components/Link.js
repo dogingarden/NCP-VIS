@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project Fileve
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-16 14:34:51
+ * @LastEditTime: 2020-02-21 00:22:55
  */
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -14,6 +14,7 @@ const Link = ({ active, children, onClick }) => {
   }
 
   return (
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
     <a href="#" onClick={e => { 
       e.preventDefault()
       onClick()

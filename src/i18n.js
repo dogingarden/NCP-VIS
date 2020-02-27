@@ -2,8 +2,8 @@
  * @Author: konglingyuan
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 22:21:33
- * @LastEditors  : konglingyuan
- * @LastEditTime : 2020-02-13 22:48:33
+ * @LastEditors: konglingyuan
+ * @LastEditTime: 2020-02-19 15:32:28
  */
 /**
  * i18n.js
@@ -52,7 +52,8 @@ const translationMessages = {
   zh: formatTranslationMessages('zh', zhTranslationMessages),
 };
 
-exports.appLocales = appLocales;
-exports.formatTranslationMessages = formatTranslationMessages;
-exports.translationMessages = translationMessages;
-exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+// exports.appLocales = appLocales;
+// exports.formatTranslationMessages = formatTranslationMessages;
+// exports.translationMessages = translationMessages;
+// exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+export { DEFAULT_LOCALE, translationMessages, formatTranslationMessages, appLocales }

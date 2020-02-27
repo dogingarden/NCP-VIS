@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-07-29 08:40:18
  * @LastEditors: konglingyuan
- * @LastEditTime : 2020-02-15 17:34:31
+ * @LastEditTime: 2020-02-23 14:45:41
  */
 import React from 'react'
 import Wrapper from "./Wrapper";
@@ -12,7 +12,7 @@ import { FormattedMessage } from 'react-intl';
 // import './fullpage/fullpage.extensions.min';
 import ReactFullpage from '@fullpage/react-fullpage';
 import messages from './messages';
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from "reselect";
 import { 
@@ -20,7 +20,8 @@ import {
   changeCenter, 
   selectProvince,
   resizeScreen ,
-  selectDate
+  selectDate,
+  changeRadiusType
 } from './actions'
 
 import { 
@@ -35,10 +36,13 @@ import {
   getSelectProvince ,
   getCenterCity,
   getDates,
-  getSelectedDate
+  getSelectedDate,
+  getMaxValue,
+  getRadiusType
 } from './selectors'
 import SecondPage from './SecondPage/Loadable';
 import AboutUs from './AboutUs/Loadable';
+import DesignIdeas from './DesignIdeas/Loadable'
 import './styles.css';
 
 const fullpageOptions = {
@@ -56,24 +60,21 @@ const fullpageOptions = {
   slidesNavigation: true,
   scrollOverflow: true,
   scrollingSpeed: 1000,
+  normalScrollElements: ' .select-group',
 };
 
 class Home extends React.PureComponent {
   componentWillMount() {
     this.props.loadData();
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   const { svgWidth, svgHeight } = this.props
-  //   return svgWidth !== nextProps.svgWidth
-  //       || svgHeight !== nextProps.svgHeight
-        
-  // }
   render() {
-    const { citiesData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,selectProvince,centerCity,dates,selectedDate,
+    const { citiesData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,selectProvince,centerCity,dates,selectedDate,radiusType,
+      maxValue,
       selectedProvince,
       changeCenter,
       resizeScreen,
-      selectDate
+      selectDate,
+      changeRadiusType
     } = this.props
     
     if (citiesData[0]) {
@@ -95,11 +96,11 @@ class Home extends React.PureComponent {
                 <FormattedMessage {...messages.thirdSlide} />
               </a>
             </li>
-            {/* <li data-menuanchor="4thpage">
+            <li data-menuanchor="4thpage">
               <a href="#4thpage">
                 <FormattedMessage {...messages.fourthSlide} />
               </a>
-            </li> */}
+            </li>
           </ul>
           <ReactFullpage
             {...fullpageOptions}
@@ -116,12 +117,13 @@ class Home extends React.PureComponent {
                       </p>
                     </div>
                   </div>
-                  {/* <div className="slide">
-                    <h1>Slide 1.2</h1>
-                  </div>
+                </div>
+                <div className="section">
                   <div className="slide">
-                    <h1>Slide 1.3</h1>
-                  </div> */}
+                    <div className="intro">
+                      <DesignIdeas/>
+                    </div>
+                  </div>
                 </div>
                 <div className="section section2">
                   <div className="secondPageContainer">
@@ -131,7 +133,10 @@ class Home extends React.PureComponent {
                       centerCity,
                       changeCenter,
                       resizeScreen,
-                      selectDate
+                      selectDate,
+                      maxValue,
+                      changeRadiusType,
+                      radiusType
                     }}/>
                   </div>
                 </div>
@@ -171,7 +176,9 @@ const mapStateToProps = createStructuredSelector({
   selectedProvince: state => getSelectProvince(state),
   centerCity: state => getCenterCity(state),
   dates: state => getDates(state),
-  selectedDate: state => getSelectedDate(state)
+  selectedDate: state => getSelectedDate(state),
+  maxValue: state => getMaxValue(state),
+  radiusType: state => getRadiusType(state)
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -189,7 +196,10 @@ const mapDispatchToProps = dispatch => ({
   },
   selectDate: (dates)=>{
     dispatch(selectDate(dates))
-  }
+  },
+  changeRadiusType: (dates)=>{
+    dispatch(changeRadiusType(dates))
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

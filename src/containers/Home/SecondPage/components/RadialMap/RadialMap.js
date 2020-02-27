@@ -3,12 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-16 16:32:11
+ * @LastEditTime: 2020-02-25 09:23:49
  */
 
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import Radial from './Radial';
+import RadialMarker from './RadialMarker'
 
 
 class RadialMap extends Component {
@@ -16,7 +17,10 @@ class RadialMap extends Component {
     // projection - defines our geo projection, how the map looks
     // geoPath - calculates d attribute of <path> so it looks like a map
     // quantize - threshold scale with 9 buckets
-    
+    shouldComponentUpdate(nextProps, nextState) {
+        const { centerCity } = this.props
+        return centerCity !== nextProps.centerCity && (centerCity===null||nextProps.centerCity===null)
+    }
     constructor(props) {
         super(props);
         this.axes = [
@@ -27,7 +31,7 @@ class RadialMap extends Component {
             { 'label': '差异极大', 'value': 75} 
         ];
         // this.updateScale(this.props)
-        
+        this.outerRadius=0
 
     }
     updateScale(props){
@@ -37,7 +41,7 @@ class RadialMap extends Component {
         }
         const rl = d3.scaleLinear().domain([0, 75])
             .range([0, max])
-
+        this.outerRadius=max
         this.arc = d3.arc()
             .outerRadius(function(d) { return rl(d.value); })
             .startAngle(0)
@@ -46,15 +50,16 @@ class RadialMap extends Component {
     componentWillReceiveProps(newProps) {
         this.updateScale(newProps);
     }
-    shouldComponentUpdate(nextProps, nextState) {
-        const { width, height } = this.props
-        return width !== nextProps.width || height !== nextProps.height
-    }
-    
-
     // If no data, do nothing (we might mount before data loads into props)
     render() {
-            // const { width, height } = this.props
+            const { centerCity } = this.props
+            let feature = { 'near': '近', 'far': "远",'distance': "地理距离",'value': 67.5}
+            let feature2 = { 'near': '小', 'far': "大",'distance': "数值差异",'value': 67.5}
+            if(centerCity===''||centerCity===null||centerCity===undefined){
+                feature = { 'near': '', 'far': "",'distance': "省份排列",'value': 67.5}
+                feature2 = { 'near': '小', 'far': "大",'distance': "数值大小",'value': 67.5}
+            }
+            
             this.updateScale(this.props)
             return (
                 <g transform={`translate(${this.props.width/2}, ${this.props.height/2})`}>
@@ -63,10 +68,13 @@ class RadialMap extends Component {
                                 feature={feature}
                                 index={id}
                                 key={id} 
-                                // {...{width,height}}
                                 />
                      ))}
-
+                    <RadialMarker
+                        arc={this.arc}
+                        outerRadius={this.outerRadius}
+                        {...{feature, feature2}}
+                    />
                      
                 </g>
             );

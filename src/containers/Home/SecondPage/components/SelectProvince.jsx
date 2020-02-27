@@ -2,7 +2,34 @@ import React from 'react';
 import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+const dot = (color = 'rgb(204, 224, 151)') => ({
+  alignItems: 'center',
+  display: 'flex',
 
+  ':before': {
+    backgroundColor: color,
+    borderRadius: 10,
+    content: '" "',
+    display: 'block',
+    marginRight: 8,
+    height: 10,
+    width: 10,
+  },
+});
+const colourStyles = {
+  
+  input: styles => ({ ...styles, ...dot() }),
+  placeholder: styles => ({ ...styles, ...dot() }),
+  singleValue: (styles) => ({ ...styles, ...dot() }),
+  clearIndicator:  (provided) => ({
+    ...provided,
+    padding: 0
+  }),
+  dropdownIndicator:  (provided) => ({
+    ...provided,
+    padding: 0
+  }),
+};
 const provinceColor="#cce097";
 
 const SelectProvince = createClass({
@@ -51,7 +78,10 @@ const SelectProvince = createClass({
 
         { value: '青海', label: '青海' },
         { value: '宁夏', label: '宁夏' },
-        { value: '新疆', label: '新疆' }
+        { value: '新疆', label: '新疆' },
+        { value: '台湾', label: '台湾' },
+        { value: '澳门', label: '澳门' },
+        { value: '香港', label: '香港' }
       ],
       value: undefined
     };
@@ -85,12 +115,19 @@ const SelectProvince = createClass({
   renderValue: function(option) {
     return <strong style={{ color: provinceColor }}>{option.label}</strong>;
   },
+  handleScroll(e) {
+    // 阻止合成事件的冒泡
+    e.stopPropagation();
+    // 阻止与原生事件的冒泡
+    e.nativeEvent.stopImmediatePropagation();
+  },
   render () {
     const { multi, multiValue, options, value, isClearable} = this.state;
-    // const { centerCity, citiesData } = this.props;
-    const placeholder = <span>选择对比省</span>;
+    const placeholder = <span>选对比省</span>;
     return (
-      <div id="select-province" width={500}>
+      <div id="select-province" width={500} 
+        onWheel={(e) => this.handleScroll(e)}
+      >
         <Select
           isMulti={multi}
           pageSize={3}
@@ -101,9 +138,9 @@ const SelectProvince = createClass({
           placeholder={placeholder}
           valueRenderer={this.renderValue}
           isClearable={isClearable}
+          styles={colourStyles}
         />
         <div className="hint">{this.props.hint}</div>
-        
       </div>
     );
   }

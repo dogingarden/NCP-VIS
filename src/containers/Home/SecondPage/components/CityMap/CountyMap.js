@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-14 21:35:22
+ * @LastEditTime: 2020-02-19 23:20:20
  */
 
 import React, { Component } from 'react';
@@ -42,7 +42,7 @@ class CountyMap extends Component {
         let b = this.path.bounds(chinaTopoJson);
         //选出高和宽之中占比大的那个。
         this.s = .95 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
-        this.t = [(width - this.s * (b[1][0] + b[0][0])) / 2, (height - this.s * (b[1][1] + b[0][1])) / 2*1.1];
+        this.t = [(width - this.s * (b[1][0] + b[0][0])) / 2, (height - this.s * (b[1][1] + b[0][1])) / 2*1];
 
         this.projection = d3.geoMercator()
             .scale(this.s)

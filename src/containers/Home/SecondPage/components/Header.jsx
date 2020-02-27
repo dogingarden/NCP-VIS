@@ -7,36 +7,62 @@ import SelectProvince from "./SelectProvince";
 import SelectDate from "./SelectDate";
 import FilterLink from '../containers/FilterLink';
 import FilterType from '../containers/FilterType';
+import FilterRadius from '../containers/FilterRadius';
+import Process from "./Process";
 import HeaderWrapper from './HeaderWrapper'
 
 class Header extends Component {
 	render() {
-		const { changeCenter,selectProvince,citiesData,selectedProvince,bgType,dataType,dates,selectedDate,selectDate } = this.props
+		const { changeCenter,selectProvince,citiesData,selectedProvince,bgType,
+			
+      		radiusType,
+			dataType,dates,selectedDate,selectDate } = this.props
     	return (
 		<HeaderWrapper className="container">
-        	{/* <h1>你的家乡有多特别</h1> */}
-	        {/* <h2>看一下哪些城市更像你家乡</h2>
-	        <h4>基于2017年各省统计局发布的官方权威数据绘制而成，从人口、GDP、人均GDP等方面权威解读各城市的差异性与相似性，快来看看你感兴趣的城市吧！</h4> */}
-	        <div id="selectorcontainer">
-				<SelectCity 
-					citiesData={this.props.citiesData} 
-	                centerCity={this.props.centerCity}
-					{...{changeCenter}}/>
+        	<div id="selectorcontainer">
+				
 	            <div id="select-data"></div>
 		        <ul className="menus">
 		          <li>
-		            <span>圆形面积:</span>
+		            <span>疫情数据:</span>
 		            {" "}
-					<FilterType filter="cum_dx" {...{dataType}}>
-				      确诊病例
+					<FilterType filter="city_confirmedCount" {...{dataType}}>
+				      确诊
 				    </FilterType>
 				    {"/ "}
+					<FilterType filter="city_curedCount" {...{dataType}}>
+				      治愈
+				    </FilterType>
+					{"/ "}
+					<FilterType filter="city_deadCount" {...{dataType}}>
+				      死亡
+				    </FilterType>
+					{"/ "}
+					<FilterType filter="day_inc" {...{dataType}}>
+				      新增确诊
+				    </FilterType>
+		          </li>
+				  <li>
+		            <span>城市信息:</span>
+		            {" "}
 				    <FilterType filter="POP" {...{dataType}}>
 				      人口
 				    </FilterType>
 				    {"/ "}
 				    <FilterType filter="GDP" {...{dataType}}>
 				      GDP
+				    </FilterType>
+					{"/ "}
+				    <FilterType filter="hospital" {...{dataType}}>
+				      医院
+				    </FilterType>
+					{"/ "}
+				    <FilterType filter="bed" {...{dataType}}>
+				      病床
+				    </FilterType>
+					{"/ "}
+				    <FilterType filter="doctor" {...{dataType}}>
+				      医生
 				    </FilterType>
 		          </li>
 		          <li>
@@ -50,10 +76,30 @@ class Header extends Component {
 				      地理布局
 				    </FilterLink> 
 				  </li>
+				  <li>
+		            <span>面积比例:</span>
+		            {" "}
+				    <FilterRadius filter="scaleLinear" {...{radiusType}}>
+				      线性
+				    </FilterRadius>
+				    {"/"}
+				    <FilterRadius filter="scaleLog" {...{radiusType}}>
+					  对数
+				    </FilterRadius> 
+				  </li>
 		        </ul>
 		        {/* <span id="about"><a href="http://vis27.com">彩色说</a>制作发布</span> */}
-		        <SelectProvince {...{citiesData,selectProvince,selectedProvince}}/>
-				<SelectDate {...{dates,selectDate,selectedDate}}/>
+				<div className="select-group">
+					<SelectDate {...{dates,selectDate,selectedDate}}/>
+					<SelectCity 
+						citiesData={this.props.citiesData} 
+						centerCity={this.props.centerCity}
+						{...{changeCenter}}/>
+					<SelectProvince {...{citiesData,selectProvince,selectedProvince}}/>
+					
+				
+				</div>
+				<Process {...{dates,selectDate,selectedDate}}/>
 		    </div>
 		</HeaderWrapper>	
 	)}

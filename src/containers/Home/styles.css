@@ -269,7 +269,13 @@ p{
   padding: 0px 5px;
   line-height: 25px;
 }
-
+.language{
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  z-index: 99;
+  opacity: 1;
+}
 @media screen and (max-width: 900px){
 
   .fp-viewing-firstPage-0 .language {
@@ -298,6 +304,11 @@ p{
   }
   .intro p{
     font-size: 15px;
+    transition: all 1s ease-in;
+      -webkit-transition: all .3s ease-in;
+  }
+  .svgContainer {
+    transform: translateY(70px);
     transition: all 1s ease-in;
       -webkit-transition: all .3s ease-in;
   }

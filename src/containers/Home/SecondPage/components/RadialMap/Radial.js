@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-16 16:31:29
+ * @LastEditTime: 2020-02-18 22:26:53
  */
 
 import React, { Component } from 'react';
@@ -39,7 +39,7 @@ class Radial extends Component {
                  >
                     <textPath 
                         xlinkHref={"#axispath" + index}
-                        startOffset="90%"
+                        startOffset="1160%"
                     >
                         {feature.label}
                     </textPath>

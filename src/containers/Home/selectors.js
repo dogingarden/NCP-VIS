@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-02 23:19:49
- * @LastEditTime : 2020-02-14 22:39:42
+ * @LastEditTime: 2020-02-19 09:44:47
  * @LastEditors: konglingyuan
  */
 import { createSelector } from 'reselect'
@@ -24,15 +24,6 @@ const getCitiesData = createSelector(
     getData,
     (state)=>state.get('citiesData')
 )
-// svgWidth: 800,
-//   svgHeight: 600,
-//   charges: [],
-//   chinaTopoJson: null,
-//   isFetching: true,
-//   bgType: "GEO",
-//   centerCity: "北京市",
-//   dataType: "GDP",
-//   selectProvince: null
 const getSvgWidth = createSelector(
     getData,
     (state)=>state.get('svgWidth')
@@ -69,6 +60,14 @@ const getSelectedDate = createSelector(
     getData,
     (state)=>state.get('selectedDate')
 )
+const getMaxValue = createSelector(
+    getData,
+    (state)=>state.get('maxValue')
+)
+const getRadiusType = createSelector(
+    getData,
+    (state)=>state.get('radiusType')
+)
 export {
     getLoading,
     getFailed,
@@ -81,5 +80,7 @@ export {
     getSelectProvince,
     getCenterCity,
     getDates,
-    getSelectedDate
+    getSelectedDate,
+    getMaxValue,
+    getRadiusType
 }

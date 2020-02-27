@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-20 10:33:38
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-18 12:17:42
+ * @LastEditTime: 2020-02-20 23:14:47
  */
 import { fromJS } from 'immutable'
 
@@ -15,6 +15,7 @@ import {
   RESIZE_SCREEN,
   CHANGE_BACKGROUND,
   CHANGE_DATA_TYPE,
+  CHANGE_RADIUS_TYPE,
   SELECT_CENTER,
   SELECT_PROVINCE,
   SELECT_DATE
@@ -32,10 +33,12 @@ const initialState = fromJS({
   isFetching: true,
   bgType: "GEO",
   centerCity: "武汉市",
-  dataType: "cum_dx",
+  dataType: "city_confirmedCount",
   selectProvince: null,
   dates: null,
-  selectedDate: null
+  selectedDate: null,
+  maxValue:0,
+  radiusType: "scaleLog"
 })
 
 const homeReducer = (state = initialState, action) => {
@@ -51,6 +54,7 @@ const homeReducer = (state = initialState, action) => {
         .set("chinaTopoJson", action.chinaTopoJson)
         .set("dates", action.dates)
         .set("selectedDate", action.selectedDate)
+        .set("maxValue", action.maxValue)
     case LOAD_FAILED:
       return state
         .set("loading", false)
@@ -61,7 +65,7 @@ const homeReducer = (state = initialState, action) => {
     case RESIZE_SCREEN:
       return state
         .set("svgWidth", action.width)
-        .set("svgHeight", action.height)      
+        .set("svgHeight", action.height)
     case CHANGE_BACKGROUND:
       return state
         .set("bgType", action.bgType)
@@ -75,8 +79,11 @@ const homeReducer = (state = initialState, action) => {
       return state
         .set("selectProvince", action.selectProvince)
     case SELECT_DATE:
-          return state
-            .set("selectedDate", action.selectedDate)
+      return state
+        .set("selectedDate", action.selectedDate)
+    case CHANGE_RADIUS_TYPE:
+      return state
+        .set("radiusType", action.radiusType)
     default:
       return state
   }

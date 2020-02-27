@@ -1,11 +1,13 @@
 {
   "app.containers.HomePage.firstSlide": "HomePage",
-  "app.containers.HomePage.secondSlide": "Data Vis",
-  "app.containers.HomePage.thirdSlide": "About us",
+  "app.containers.HomePage.secondSlide": "Design",
+  "app.containers.HomePage.thirdSlide": "Data Vis",
   "app.containers.HomePage.fourthSlide": "About us",
-  "app.containers.HomePage.title": "万众「疫」心，战「疫」行动",
-  "app.containers.HomePage.desc": "新型冠状病毒肺炎是一种急性感染性肺炎，其病原体是一种先前未在人类中发现的新型冠状病毒，即2019新型冠状病毒。2020年2月7日，国家卫健委决定将“新型冠状病毒感染的肺炎”暂命名为“新型冠状病毒肺炎”，简称“新冠肺炎”。英文名称为“Novel Coronavirus Pneumonia”，简称“NCP”。2月11日，世界卫生组织（WHO）将其命名为2019冠状病毒病，英文名称为Corona Virus Disease 2019（COVID-19）。",
+  "app.containers.HomePage.title": "NCP-VIS",
+  "app.containers.HomePage.desc": "Novel Coronavirus Pneumonia(NCP) is a severe acute respiratory syndrome that broke out in Wuhan, China in 2019. The infectious disease was caused by a new coronavirus and quickly spread to hundreds of cities in China and several countries within a short period of time. As of February 21, 2019, more than 70,000 people have been diagnosed. Our system (NCP-VIS) visually shows the trend of disease Spread in various cities. NCP-VIS uses geographic layout and radial layout to explore the trend of disease and correlation between cities.",
   "app.containers.LocaleToggle.zh": "中文",
   "app.containers.LocaleToggle.en": "ENGLISH",
+  "app.containers.AboutUs.author1Name": "Lingyuan Kong",
+  "app.containers.AboutUs.author2Name": "Zhiren Huang",
   "app.containers.NotFoundPage.header": "Page not found."
 }

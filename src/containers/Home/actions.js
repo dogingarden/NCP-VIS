@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-20 10:31:44
  * @LastEditors: konglingyuan
- * @LastEditTime : 2020-02-15 14:41:46
+ * @LastEditTime: 2020-02-19 09:55:49
  */
 import {
     LOADING_DATA,
@@ -15,7 +15,8 @@ import {
     CHANGE_DATA_TYPE,
     SELECT_CENTER,
     SELECT_PROVINCE,
-    SELECT_DATE
+    SELECT_DATE,
+    CHANGE_RADIUS_TYPE
 } from './constants';
 
 import { combineData } from '../../utils/utils'
@@ -25,13 +26,18 @@ export const loadData = () => ({
     type: LOADING_DATA,
 })
 
-export const loadSuccess = (data) => ({
-    type: LOAD_SUCCESS,
-    citiesData: combineData(data[0]).data,
-    dates: combineData(data[0]).dates.all,
-    chinaTopoJson: data[1],
-    selectedDate:  combineData(data[0]).dates.selected
-})
+export const loadSuccess = (data) => {
+    const calcData = combineData(data[0])
+    return (
+        {
+            type: LOAD_SUCCESS,
+            citiesData: calcData.data,
+            dates: calcData.dates.all,
+            chinaTopoJson: data[1],
+            selectedDate:  calcData.dates.selected,
+            maxValue: calcData.maxValue,
+        }
+)}
 
 export const loadFailed = () => ({
     type: LOAD_FAILED,
@@ -79,5 +85,12 @@ export function selectDate(selectedDate) {
     return {
         type: SELECT_DATE,
         selectedDate
+    }
+}
+//修改球的半径计算方法
+export function changeRadiusType(radiusType) {
+    return {
+        type: CHANGE_RADIUS_TYPE,
+        radiusType
     }
 }

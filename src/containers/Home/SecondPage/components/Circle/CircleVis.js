@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-18 12:42:12
+ * @LastEditTime: 2020-02-26 10:12:15
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
@@ -19,7 +19,7 @@ class CircleVis extends Component{
         this.barContainer=null;
     }
     shouldComponentUpdate(nextProps, nextState) {
-        const { bgType ,dataType,centerCity,selectedProvince,width,height,selectedDate} = this.props;
+        const { bgType ,dataType,centerCity,selectedProvince,width,height,selectedDate,radiusType} = this.props;
         
         //必须在背景类型或者数据类型更改的时候才会重绘。
         return  bgType !== nextProps.bgType||
@@ -28,7 +28,8 @@ class CircleVis extends Component{
                 selectedProvince!==nextProps.selectedProvince||
                 width!==nextProps.width||
                 height!==nextProps.height||
-                selectedDate!==nextProps.selectedDate
+                selectedDate!==nextProps.selectedDate||
+                radiusType!==nextProps.radiusType
     }
     updateCircles(prevProps, prevState){
         const { projection, bgType, centerCity, height, width, selectedProvince, dataType ,handleChangeCernter} = this.props;
@@ -217,13 +218,11 @@ class CircleVis extends Component{
 
         circles
             .on("mouseover", (d, i) => {
-                console.log(d3.select(this.parentNode))
                 var labelbackground = this.container
                     .append('text')
                     .attr('class', 'label')
                     .style('text-anchor', 'middle')
                     .text(()=>{
-                        console.log(d)
                         return this.getMouseOverText(d,dataType)
                     })
                     .style('font-family', "'Quicksand', sans-serif")
@@ -286,28 +285,77 @@ class CircleVis extends Component{
 
     }
     getBarText(dataType,centerCity){
-        if(dataType==="POP"){
-            return "人口："+d3.format(",")(parseInt(centerCity.POP))+"万";
-        }else if(dataType==="GDP"){
-            return "GDP："+d3.format(",")(parseInt(centerCity.GDP))+"亿";
-        }else if(dataType==="GDP_POP"){
-            return "人均GDP："+d3.format(",")(parseInt(centerCity.GDP_POP))+"万";
-        }else if(dataType==="cum_dx"){
-            return "确诊病例："+d3.format(",")(parseInt(centerCity.cum_dx))+"人";
+
+        let title=''
+        // eslint-disable-next-line default-case
+        switch (dataType) {
+            case "POP":
+                title ="人口："+d3.format(",")(parseInt(centerCity.POP))+"万";
+                break;
+            case "GDP":
+                title = "GDP："+d3.format(",")(parseInt(centerCity.GDP))+"亿";
+                 break;
+            case "city_confirmedCount":
+                title = "确诊病例："+d3.format(",")(parseInt(centerCity.city_confirmedCount))+"人";
+                 break;
+            case "city_curedCount":
+                title = "治愈病例："+d3.format(",")(parseInt(centerCity.city_curedCount))+"人";
+                 break;
+            case "city_deadCount":
+                title = "死亡病例："+d3.format(",")(parseInt(centerCity.city_deadCount))+"人";
+                 break;
+            case "hospital":
+                title = "医院数量："+d3.format(",")(parseInt(centerCity.hospital))+"个";
+                 break;
+            case "bed":
+                title = "病床数量："+d3.format(",")(parseInt(centerCity.bed))+"张";
+                break;
+            case "doctor":
+                title = "医生数量："+d3.format(",")(parseInt(centerCity.doctor))+"位";
+                break;
+            case "day_inc":
+                title = "新增确诊："+d3.format(",")(parseInt(centerCity.day_inc))+"位";
+                break;
+        } 
+        if(centerCity.city===undefined){
+            title=''
         }
+        return title
     }
     getMouseOverText(d,dataType){
         
-        if(dataType==="POP"){
-            return  d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
-        }else if(dataType==="GDP"){
-            return d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
-        }else if(dataType==="GDP_POP"){
-            return d.city+"人均GDP："+d3.format(",")(parseInt(d.GDP_POP))+"万";
-        }else if(dataType==="cum_dx"){
-            
-            return d.city+"确诊病例："+d3.format(",")(parseInt(d.cum_dx))+"人";
-        }
+        let title=''
+        // eslint-disable-next-line default-case
+        switch (dataType) {
+            case "POP":
+                title = d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
+                break;
+            case "GDP":
+                title = d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
+                 break;
+            case "city_confirmedCount":
+                title = d.city+"确诊病例："+d3.format(",")(parseInt(d.city_confirmedCount))+"人";
+                 break;
+            case "city_curedCount":
+                title = d.city+"治愈病例："+d3.format(",")(parseInt(d.city_curedCount))+"人";
+                 break;
+            case "city_deadCount":
+                title = d.city+"死亡病例："+d3.format(",")(parseInt(d.city_deadCount))+"人";
+                 break;
+            case "hospital":
+                title = d.city+"医院数量："+d3.format(",")(parseInt(d.hospital))+"个";
+                 break;
+            case "bed":
+                title = d.city+"病床数量："+d3.format(",")(parseInt(d.bed))+"张";
+                break;
+            case "doctor":
+                title = d.city+"医生数量："+d3.format(",")(parseInt(d.doctor))+"位";
+                break;
+            case "day_inc":
+                title = d.city+"新增确诊："+d3.format(",")(parseInt(d.day_inc))+"位";
+                break;
+        } 
+        return title
     }
     componentDidMount(){
 

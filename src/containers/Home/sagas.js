@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-21 15:19:41
  * @LastEditors: konglingyuan
- * @LastEditTime : 2020-02-14 19:57:59
+ * @LastEditTime: 2020-02-20 23:04:43
  */
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { LOADING_DATA } from './constants'
@@ -13,7 +13,7 @@ import * as d3 from 'd3'
 
 function d3LoadData(){
    return Promise.all([
-      d3.csv('./data/cumulative_diagnosis_0124_0209.csv'),
+      d3.csv('./data/cumulative_diagnosis_0124_0220.csv'),
       d3.json('./data/china.topojson'),
    ])
 }

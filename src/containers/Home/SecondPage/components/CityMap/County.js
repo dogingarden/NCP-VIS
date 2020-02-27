@@ -3,11 +3,10 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime : 2020-02-14 21:14:52
+ * @LastEditTime: 2020-02-21 00:25:53
  */
 
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 const BlankColor = 'rgb(20,240,240)'
 const StrokeColor = 'rgb(174, 174, 174)'
@@ -36,10 +35,15 @@ class County extends Component {
             // color = ChoroplethColors[quantize(value)];
             color="#ffffff"
         }
-
-        return (
-            <path d={geoPath(feature)} style={{fill: color,stroke: stroke}} strokeWidth={lineWindth} title={feature.id} />
-        );
+        if(feature.properties.name!=="九段线"){
+            return (
+                <path d={geoPath(feature)} style={{fill: color,stroke: stroke}} strokeWidth={lineWindth} title={feature.id} />
+            );
+        }else{
+            return (
+                <path d={geoPath(feature)} stroke= {"rgb(174, 174, 174)"} style={{fill: "rgb(121, 116, 116)",stroke: "rgb(121, 116, 116)"}} strokeWidth={2} title={feature.id} />
+            );
+        }
     }
 }
 

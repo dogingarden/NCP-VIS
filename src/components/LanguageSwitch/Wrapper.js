@@ -1,12 +1,15 @@
+/*
+ * @Author: konglingyuan
+ * @Description: A Vue/React Project File
+ * @Date: 2020-02-13 21:51:30
+ * @LastEditors: konglingyuan
+ * @LastEditTime: 2020-02-19 18:26:13
+ */
 import styled from 'styled-components';
 import flags from './flags.png';
 
 const Wrapper = styled.div`
-  position: absolute;
-  left: 20px;
-  top: 14px;
-  z-index: 99;
-  opacity: 1;
+
   & .language-current {
     color: #004f69;
     margin: 15px 0 6px 15px;
