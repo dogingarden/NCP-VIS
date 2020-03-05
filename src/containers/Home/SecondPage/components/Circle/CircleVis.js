@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-26 10:12:15
+ * @LastEditTime: 2020-03-05 22:16:47
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
@@ -19,7 +19,7 @@ class CircleVis extends Component{
         this.barContainer=null;
     }
     shouldComponentUpdate(nextProps, nextState) {
-        const { bgType ,dataType,centerCity,selectedProvince,width,height,selectedDate,radiusType} = this.props;
+        const { bgType ,dataType,centerCity,selectedProvince,width,height,selectedDate,radiusType,distanceType} = this.props;
         
         //必须在背景类型或者数据类型更改的时候才会重绘。
         return  bgType !== nextProps.bgType||
@@ -29,7 +29,8 @@ class CircleVis extends Component{
                 width!==nextProps.width||
                 height!==nextProps.height||
                 selectedDate!==nextProps.selectedDate||
-                radiusType!==nextProps.radiusType
+                radiusType!==nextProps.radiusType||
+                distanceType!==nextProps.distanceType
     }
     updateCircles(prevProps, prevState){
         const { projection, bgType, centerCity, height, width, selectedProvince, dataType ,handleChangeCernter} = this.props;

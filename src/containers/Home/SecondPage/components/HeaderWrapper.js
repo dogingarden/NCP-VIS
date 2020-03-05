@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-26 10:23:14
+ * @LastEditTime: 2020-03-05 22:10:56
  */
 import styled from 'styled-components';
 const HeaderWrapper = styled.div`
@@ -85,7 +85,7 @@ const HeaderWrapper = styled.div`
         & .process{
             position: absolute;
             transform: translateX(-50%);
-            top:200px;
+            top:210px;
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
         }
@@ -95,7 +95,7 @@ const HeaderWrapper = styled.div`
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
             width: 390px;
-            top: 150px;
+            top: 160px;
             left: 50%;
             text-align:center;
             z-index: 101;

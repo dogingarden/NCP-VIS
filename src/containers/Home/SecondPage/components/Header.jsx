@@ -8,13 +8,14 @@ import SelectDate from "./SelectDate";
 import FilterLink from '../containers/FilterLink';
 import FilterType from '../containers/FilterType';
 import FilterRadius from '../containers/FilterRadius';
+import FilterDistance from '../containers/FilterDistance';
 import Process from "./Process";
 import HeaderWrapper from './HeaderWrapper'
 
 class Header extends Component {
 	render() {
 		const { changeCenter,selectProvince,citiesData,selectedProvince,bgType,
-			
+			distanceType,
       		radiusType,
 			dataType,dates,selectedDate,selectDate } = this.props
     	return (
@@ -87,6 +88,19 @@ class Header extends Component {
 					  对数
 				    </FilterRadius> 
 				  </li>
+				  {bgType==="RADIAL" &&
+					<li>
+						<span>距离度量:</span>
+						{" "}
+						<FilterDistance filter="scaleLinear" {...{distanceType}}>
+						线性
+						</FilterDistance>
+						{"/"}
+						<FilterDistance filter="scaleLog" {...{distanceType}}>
+						对数
+						</FilterDistance> 
+					</li>
+					}
 		        </ul>
 		        {/* <span id="about"><a href="http://vis27.com">彩色说</a>制作发布</span> */}
 				<div className="select-group">

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-20 10:31:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-19 09:55:49
+ * @LastEditTime: 2020-03-05 21:57:12
  */
 import {
     LOADING_DATA,
@@ -16,7 +16,8 @@ import {
     SELECT_CENTER,
     SELECT_PROVINCE,
     SELECT_DATE,
-    CHANGE_RADIUS_TYPE
+    CHANGE_RADIUS_TYPE,
+    CHANGE_DISTANCE_TYPE
 } from './constants';
 
 import { combineData } from '../../utils/utils'
@@ -92,5 +93,12 @@ export function changeRadiusType(radiusType) {
     return {
         type: CHANGE_RADIUS_TYPE,
         radiusType
+    }
+}
+//修改距离度量方法
+export function changeDistanceType(distanceType) {
+    return {
+        type: CHANGE_DISTANCE_TYPE,
+        distanceType
     }
 }

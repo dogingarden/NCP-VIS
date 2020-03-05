@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-07-29 08:40:18
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-23 14:45:41
+ * @LastEditTime: 2020-03-05 22:12:10
  */
 import React from 'react'
 import Wrapper from "./Wrapper";
@@ -21,7 +21,8 @@ import {
   selectProvince,
   resizeScreen ,
   selectDate,
-  changeRadiusType
+  changeRadiusType,
+  changeDistanceType
 } from './actions'
 
 import { 
@@ -38,7 +39,8 @@ import {
   getDates,
   getSelectedDate,
   getMaxValue,
-  getRadiusType
+  getRadiusType,
+  getDistanceType
 } from './selectors'
 import SecondPage from './SecondPage/Loadable';
 import AboutUs from './AboutUs/Loadable';
@@ -68,13 +70,14 @@ class Home extends React.PureComponent {
     this.props.loadData();
   }
   render() {
-    const { citiesData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,selectProvince,centerCity,dates,selectedDate,radiusType,
+    const { citiesData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,selectProvince,centerCity,dates,selectedDate,
+      radiusType,
+      distanceType,
       maxValue,
       selectedProvince,
       changeCenter,
       resizeScreen,
-      selectDate,
-      changeRadiusType
+      selectDate
     } = this.props
     
     if (citiesData[0]) {
@@ -135,8 +138,8 @@ class Home extends React.PureComponent {
                       resizeScreen,
                       selectDate,
                       maxValue,
-                      changeRadiusType,
-                      radiusType
+                      radiusType,
+                      distanceType,
                     }}/>
                   </div>
                 </div>
@@ -178,7 +181,8 @@ const mapStateToProps = createStructuredSelector({
   dates: state => getDates(state),
   selectedDate: state => getSelectedDate(state),
   maxValue: state => getMaxValue(state),
-  radiusType: state => getRadiusType(state)
+  radiusType: state => getRadiusType(state),
+  distanceType: state => getDistanceType(state)
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -197,9 +201,12 @@ const mapDispatchToProps = dispatch => ({
   selectDate: (dates)=>{
     dispatch(selectDate(dates))
   },
-  changeRadiusType: (dates)=>{
-    dispatch(changeRadiusType(dates))
+  changeRadiusType: (type)=>{
+    dispatch(changeRadiusType(type))
   },
+  changeDistanceType: (type)=>{
+    dispatch(changeDistanceType(type))
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-20 10:33:38
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-20 23:14:47
+ * @LastEditTime: 2020-03-05 22:14:46
  */
 import { fromJS } from 'immutable'
 
@@ -16,6 +16,7 @@ import {
   CHANGE_BACKGROUND,
   CHANGE_DATA_TYPE,
   CHANGE_RADIUS_TYPE,
+  CHANGE_DISTANCE_TYPE,
   SELECT_CENTER,
   SELECT_PROVINCE,
   SELECT_DATE
@@ -38,7 +39,8 @@ const initialState = fromJS({
   dates: null,
   selectedDate: null,
   maxValue:0,
-  radiusType: "scaleLog"
+  radiusType: "scaleLog",
+  distanceType: "scaleLog"
 })
 
 const homeReducer = (state = initialState, action) => {
@@ -83,7 +85,10 @@ const homeReducer = (state = initialState, action) => {
         .set("selectedDate", action.selectedDate)
     case CHANGE_RADIUS_TYPE:
       return state
-        .set("radiusType", action.radiusType)
+      .set("radiusType", action.radiusType)
+    case CHANGE_DISTANCE_TYPE:
+      return state
+      .set("distanceType", action.distanceType)
     default:
       return state
   }

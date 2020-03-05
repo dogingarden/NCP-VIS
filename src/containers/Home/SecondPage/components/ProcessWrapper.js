@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-21 14:42:58
+ * @LastEditTime: 2020-03-05 22:10:49
  */
 import styled from 'styled-components';
 const ProcessWrapper = styled.div`
@@ -13,7 +13,7 @@ const ProcessWrapper = styled.div`
     margin: 0; 
     display: inline-block; 
     left: 200px; 
-    top: 480px;
+    top: 490px;
     width: 270px;
     & .icon{
         fill: rgb(24, 86, 163);
@@ -32,12 +32,7 @@ const ProcessWrapper = styled.div`
         margin:0 auto;
     }
     @media screen and (max-width: 900px) {
-        & {
-            left:unset;
-            top:90px;
-            transition: all 1s ease-in;
-            -webkit-transition: all .3s ease-in;
-        }
+
         
     }
     

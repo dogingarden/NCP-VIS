@@ -3,11 +3,12 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-21 22:51:59
+ * @LastEditTime: 2020-03-05 22:43:39
  */
-import 'rc-progress/assets/index.css';
+// import 'rc-progress/assets/index.css';
 import React, { Component } from 'react';
-import { Line } from 'rc-progress';
+// import { Line } from 'rc-progress';
+import Slider from './ProcessChart/Slider'
 import ProcessWrapper from './ProcessWrapper'
 import { ReactComponent as Pause } from './icons/pause.svg';
 import { ReactComponent as Play } from './icons/play.svg';
@@ -56,7 +57,7 @@ class Process extends Component {
     const { dates, selectDate,selectedDate }=this.props
     // const { text } = this.state
     let currentIndex = dates.indexOf(selectedDate) 
-    let datePrecent = ( currentIndex + 1 )/dates.length*100
+    let datePrecent = ( currentIndex ) / ( dates.length - 1 ) * 100
     
     if(currentIndex===dates.length-1){
       clearInterval(this.countdown);
@@ -74,24 +75,19 @@ class Process extends Component {
     const { dates, selectedDate }=this.props
     // const { text } = this.state
     let currentIndex = dates.indexOf(selectedDate) 
-    let datePrecent = ( currentIndex + 1 )/dates.length*100
+    let datePrecent = ( currentIndex )/(dates.length-1)*100
     const containerStyle = {
       width: '240px',
     };    
     return (
       <ProcessWrapper className="process">
-        {/* <p className="button">
-          <button type="button" onClick={ this.onHandleClick }>
-            {text}
-          </button>
-        </p> */}
         <div className="button">
           <Greeting className="icons" text={text} onHandlePlay={this.onHandlePlay} onHandlePause={this.onHandlePause}/>
         </div>
         <div style={containerStyle} className="bar">
-          <Line percent={datePrecent} strokeWidth="4" strokeColor={color} />
+          <Slider percent={datePrecent} color={color}/>
+          {/* <Line percent={datePrecent} strokeWidth="4" strokeColor={color} /> */}
         </div>
-        
       </ProcessWrapper>
     );
   }

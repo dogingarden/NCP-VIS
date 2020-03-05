@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-02 23:19:49
- * @LastEditTime: 2020-02-19 09:44:47
+ * @LastEditTime: 2020-03-05 21:55:18
  * @LastEditors: konglingyuan
  */
 import { createSelector } from 'reselect'
@@ -68,6 +68,10 @@ const getRadiusType = createSelector(
     getData,
     (state)=>state.get('radiusType')
 )
+const getDistanceType = createSelector(
+    getData,
+    (state)=>state.get('distanceType')
+)
 export {
     getLoading,
     getFailed,
@@ -82,5 +86,6 @@ export {
     getDates,
     getSelectedDate,
     getMaxValue,
-    getRadiusType
+    getRadiusType,
+    getDistanceType
 }

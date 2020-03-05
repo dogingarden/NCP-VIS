@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 16:36:09
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-26 11:06:51
+ * @LastEditTime: 2020-03-05 22:11:47
  */
 
 import React from 'react'
@@ -37,16 +37,19 @@ export default class SecondPage extends React.Component {
     const { citiesData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType ,centerCity,dates, selectedDate,
       changeCenter,selectProvince, maxValue,
       selectedProvince,resizeScreen,selectDate,
-      changeRadiusType,
-      radiusType } = this.props
+      radiusType,
+      distanceType,
+    } = this.props
 
     let showData = this.getShowData(citiesData,selectedDate,dataType)
 
     return (
       <Wrapper >
         <App 
-          { ...{citiesData: showData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,centerCity,changeRadiusType,
+          { ...{citiesData: showData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,centerCity,
+            
             radiusType,
+            distanceType,
             selectedProvince,dates,selectedDate,maxValue} }
           { ...{changeCenter,selectProvince,resizeScreen,selectDate} }
         />

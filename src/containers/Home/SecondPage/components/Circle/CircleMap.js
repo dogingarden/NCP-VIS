@@ -29,7 +29,7 @@ class CircleMap extends Component {
     // Re-center the geo projection
     // Update domain of quantize scale
     updateD3(props) {
-        const { chinaTopoJson, width, height } = props
+        const { chinaTopoJson, width, height, distanceType } = props
         this.projection = d3.geoMercator()
             .scale(1)
             .translate([0, 0]);
@@ -84,7 +84,7 @@ class CircleMap extends Component {
             max = d3.min([props.width / 2 - 20, props.height / 2 - 20])
         }
 
-        let scale = d3.scaleLog()
+        let scale = d3[distanceType]()
             // .base(2)
             .domain([1, d3.max(distance, function (d) {
                 return ~~d;
@@ -132,7 +132,7 @@ class CircleMap extends Component {
 
     // If no data, do nothing (we might mount before data loads into props)
     render() {
-        const { width, height, bgType, dataType, selectedProvince, handleChangeCernter, selectedDate, radiusType } = this.props
+        const { width, height, bgType, dataType, selectedProvince, handleChangeCernter, selectedDate, radiusType, distanceType } = this.props
 
         const { projection, centerCity } = this
         if (!this.props.citiesData) {
@@ -142,7 +142,7 @@ class CircleMap extends Component {
                 <g ref='circleContainer'>
                     <CircleVis
                         data={this.calculateCircleRadius(this.props.citiesData, this.props.dataType, dataType)}
-                        {...{ width, height, bgType, dataType, projection, radiusType, centerCity, selectedDate, selectedProvince, handleChangeCernter }}
+                        {...{ width, height, bgType, dataType, projection, radiusType, distanceType, centerCity, selectedDate, selectedProvince, handleChangeCernter }}
 
                     />
                 </g>
