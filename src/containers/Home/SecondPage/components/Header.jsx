@@ -14,10 +14,11 @@ import HeaderWrapper from './HeaderWrapper'
 
 class Header extends Component {
 	render() {
-		const { changeCenter,selectProvince,citiesData,selectedProvince,bgType,
+		const { citiesData,allData, changeCenter, selectProvince, selectedProvince, bgType,
 			distanceType,
-      		radiusType,
-			dataType,dates,selectedDate,selectDate } = this.props
+			  radiusType,
+			  centerCity,
+			dataType, dates, selectedDate, selectDate } = this.props
     	return (
 		<HeaderWrapper className="container">
         	<div id="selectorcontainer">
@@ -113,7 +114,7 @@ class Header extends Component {
 					
 				
 				</div>
-				<Process {...{dates,selectDate,selectedDate}}/>
+				<Process {...{dates, selectDate, selectedDate, allData, centerCity, dataType }}/>
 		    </div>
 		</HeaderWrapper>	
 	)}

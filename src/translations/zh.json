@@ -3,7 +3,7 @@
   "app.containers.HomePage.secondSlide": "设计思路",
   "app.containers.HomePage.thirdSlide": "可视展示",
   "app.containers.HomePage.fourthSlide": "关于我们",
-  "app.containers.HomePage.title": "NCP-VIS",
+  "app.containers.HomePage.title": "疫城记",
   "app.containers.HomePage.desc": "新型冠状病毒肺炎是2019年爆发于中国武汉的严重急性呼吸道综合征。该传染病因新型冠状病毒引起，在短时间内迅速传播到中国国内数百个城市及数个国家，截至2019年2月21日已累计确诊7万多人。本系统（NCP-VIS）通过可视化的方式展示了中国各个城市病情发展状况，使用地理布局和径向布局的形式来探索城市间的疫情变化趋势与关联。",
   "app.containers.LocaleToggle.zh": "中文",
   "app.containers.LocaleToggle.en": "ENGLISH",

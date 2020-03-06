@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-01-07 14:03:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-26 11:10:39
+ * @LastEditTime: 2020-03-06 16:26:39
  */
 const combineData = function(data){
     let dates=[]
@@ -58,9 +58,26 @@ const combineData = function(data){
             d.arrLength = tempArr.data.length
         })
     })
-    console.log(showData)
     //一个是选中 一个是全部
     let datesObj = {selected: dates[0], all: dates}
     return {data: showData, dates: datesObj, maxValue}
 }
-export {combineData}
+//根据中心城市、展示类别选出用于时间轴上展示的数据
+const getTimelineData=function( centerCity, dataType, allData){
+    let showData=[]
+    allData.forEach(d=>{
+        let temp={ value:0 }
+        temp.date=d.date
+        let filterResult = d.data.filter(d=>{
+            return d.city===centerCity
+        })
+        if(filterResult.length>0){
+            temp.value=filterResult[0][dataType]
+        }else{
+            temp.value=0
+        }
+        showData.push(temp)
+    })
+    return showData
+}
+export { combineData, getTimelineData }

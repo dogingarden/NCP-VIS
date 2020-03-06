@@ -3,12 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-05 23:26:22
+ * @LastEditTime: 2020-03-06 17:13:59
  */
 import React, { Component } from 'react';
 import SliderWrapper from './SliderWrapper'
 import * as d3 from 'd3'
 import { sliderBottom } from './d3-slider';
+import { getTimelineData } from 'utils/utils'
 
 class Slider extends Component {
   constructor() {
@@ -17,21 +18,34 @@ class Slider extends Component {
     this.state = {
 
     };
+    this.ifInit = false
   }
   componentDidMount(){
-    
-    // New York Times
-    var width = 565;
-    var height = 120;
-    var margin = { top: 20, right: 50, bottom: 50, left: 40 };
-
-    var dataNewYorkTimes = d3.range(1, 41).map(d => ({
-      year: d,
-      value: 10000 * Math.exp(-(d - 1) / 40),
-    }));
-
+    const { centerCity, dataType, allData }=this.props
+    const timelineData = getTimelineData(centerCity, dataType, allData)
+    this.initChart(timelineData)
+  }
+  componentWillReceiveProps(newProps) {
+    const {centerCity, dataType, allData}=this.props
+    if(centerCity !==newProps.centerCity ||
+      dataType!==newProps.dataType){
+        console.log(newProps.centerCity)
+        const timelineData = getTimelineData(newProps.centerCity, newProps.dataType, allData)
+        this.drawChart(timelineData)
+      }
+  }
+  initChart(timelineData){
+    // const { percent, color, timelineData } = newProps
+    var width = 220;
+    var height = 100;
+    var margin = { top: 30, right: 20, bottom: 30, left:20 };
+    var parseTime = d3.timeParse("%Y-%m-%d");
+    timelineData.forEach(d=>{
+      d.date = parseTime(d.date);
+      d.value = +d.value;
+    })
     var svg = d3
-      .select('#slider-new-york-times')
+      .select('#slider-timeline')
       .append('svg')
       .attr('width', width)
       .attr('height', height);
@@ -40,16 +54,13 @@ class Slider extends Component {
 
     var xBand = d3
       .scaleBand()
-      .domain(dataNewYorkTimes.map(d => d.year))
+      .domain(timelineData.map(d => d.date))
       .range([margin.left, width - margin.right])
       .padding(padding);
 
     var xLinear = d3
-      .scaleLinear()
-      .domain([
-        d3.min(dataNewYorkTimes, d => d.year),
-        d3.max(dataNewYorkTimes, d => d.year),
-      ])
+      .scaleTime()
+      .domain(d3.extent(timelineData, function(d) { return d.date; }))
       .range([
         margin.left + xBand.bandwidth() / 2 + xBand.step() * padding - 0.5,
         width -
@@ -61,7 +72,7 @@ class Slider extends Component {
 
     var y = d3
       .scaleLinear()
-      .domain([0, d3.max(dataNewYorkTimes, d => d.value)])
+      .domain([0, d3.max(timelineData, d => d.value)])
       .nice()
       .range([height - margin.bottom, margin.top]);
 
@@ -88,12 +99,14 @@ class Slider extends Component {
     var bars = svg
       .append('g')
       .selectAll('rect')
-      .data(dataNewYorkTimes);
+      .data(timelineData);
 
     var barsEnter = bars
       .enter()
       .append('rect')
-      .attr('x', d => xBand(d.year))
+      .attr('x', d => {
+        return xBand(d.date)
+      })
       .attr('y', d => y(d.value))
       .attr('height', d => y(0) - y(d.value))
       .attr('width', xBand.bandwidth());
@@ -104,7 +117,7 @@ class Slider extends Component {
     var draw = selected => {
       barsEnter
         .merge(bars)
-        .attr('fill', d => (d.year === selected ? '#bad80a' : '#e0e0e0'));
+        .attr('fill', d => (d.date === selected ? '#bad80a' : '#e0e0e0'));
 
       // d3.select('p#value-new-york-times').text(
       //   d3.format('$,.2r')(dataNewYorkTimes[selected - 1].value)
@@ -115,7 +128,7 @@ class Slider extends Component {
   }
   render() {
     return (
-      <SliderWrapper className="process" id="slider-new-york-times">
+      <SliderWrapper className="process" id="slider-timeline">
         
       </SliderWrapper>
     );

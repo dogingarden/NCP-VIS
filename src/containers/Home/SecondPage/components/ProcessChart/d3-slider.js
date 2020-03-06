@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-03-05 23:13:50
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-05 23:13:53
+ * @LastEditTime: 2020-03-06 15:30:20
  */
 import { min, max, scan } from 'd3-array';
 import { axisTop, axisRight, axisBottom, axisLeft } from 'd3-axis';
@@ -68,6 +68,7 @@ function slider(orientation, scale) {
   var axisFunction = null;
 
   switch (orientation) {
+    
     case top:
       axisFunction = axisTop;
       break;
@@ -80,6 +81,8 @@ function slider(orientation, scale) {
     case left:
       axisFunction = axisLeft;
       break;
+    default:
+      axisFunction = null;
   }
 
   var handleSelection = null;
@@ -286,6 +289,8 @@ function slider(orientation, scale) {
             slider.value(newValue(domain[1]));
             event.preventDefault();
             break;
+          default:
+            
         }
       });
 

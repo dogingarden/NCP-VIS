@@ -34,9 +34,9 @@ class App extends React.Component {
     }
 
     render() {
-        const { dataType,bgType,centerCity,citiesData,chinaTopoJson, 
-            changeCenter, svgWidth, svgHeight,dates,selectDate,selectedDate,maxValue,
-
+        const { dataType, bgType, centerCity, citiesData, chinaTopoJson, 
+            changeCenter, svgWidth, svgHeight, dates, selectDate, selectedDate, maxValue,
+            allData,
             radiusType,
             selectProvince,
             selectedProvince,
@@ -61,7 +61,7 @@ class App extends React.Component {
                     { ...{citiesData, centerCity: ifHas===false?null : centerCity, changeCenter, 
                         selectProvince ,bgType, dataType,dates,selectedDate,selectDate,
                         radiusType,
-                        distanceType
+                        distanceType, allData
                     }}/>
   
                 <div className="svgContainer" ref={this.myRef}>
@@ -71,13 +71,13 @@ class App extends React.Component {
                           {...{width,height}}
                       />            
                       <CircleMap  {...{citiesData, bgType, dataType, 
-                      centerCity: ifHas===false?null : centerCity , 
-                      selectedProvince, chinaTopoJson, 
-                      selectedDate,maxValue, radiusType, distanceType}}
-                          handleChangeCernter = {changeCenter}
-                          x={0}
-                          y={0}
-                          {...{width,height}}
+                        centerCity: ifHas===false?null : centerCity , 
+                        selectedProvince, chinaTopoJson, 
+                        selectedDate, maxValue, radiusType, distanceType}}
+                            handleChangeCernter = {changeCenter}
+                            x={0}
+                            y={0}
+                            {...{width,height}}
                           />
                   </svg> 
                 </div>
