@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-25 09:23:49
+ * @LastEditTime: 2020-03-07 10:01:16
  */
 
 import React, { Component } from 'react';
@@ -19,7 +19,10 @@ class RadialMap extends Component {
     // quantize - threshold scale with 9 buckets
     shouldComponentUpdate(nextProps, nextState) {
         const { centerCity } = this.props
-        return centerCity !== nextProps.centerCity && (centerCity===null||nextProps.centerCity===null)
+        const { width, height } = this.props
+        return (centerCity !== nextProps.centerCity && (centerCity===null||nextProps.centerCity===null))||
+                width !== nextProps.width
+                || height !== nextProps.height;
     }
     constructor(props) {
         super(props);

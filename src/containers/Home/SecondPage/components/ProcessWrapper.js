@@ -3,22 +3,23 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-05 22:10:49
+ * @LastEditTime: 2020-03-07 00:29:22
  */
 import styled from 'styled-components';
 const ProcessWrapper = styled.div`
     position: absolute;
+    text-align: center;
+    vertical-align: middle;
     list-style: none; 
     padding: 0; 
     margin: 0; 
-    display: inline-block; 
-    left: 200px; 
-    top: 490px;
-    width: 270px;
+    left: 180px; 
+    top: 520px;
+    width: 300px;
     & .icon{
-        fill: rgb(24, 86, 163);
-        width: 20px;
-        height: 20px;
+        fill: rgba(0,0,0,0.5);
+        width: 25px;
+        height: 25px;
     }
     .bar{
         padding-left: 10px;
@@ -26,6 +27,7 @@ const ProcessWrapper = styled.div`
         left: 0px;
         display: inline-block;
         bottom: 5px;
+        vertical-align: middle;
     }
     .button{
         display: inline-block; 

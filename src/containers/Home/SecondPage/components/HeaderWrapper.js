@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-05 22:10:56
+ * @LastEditTime: 2020-03-07 00:47:06
  */
 import styled from 'styled-components';
 const HeaderWrapper = styled.div`
@@ -14,6 +14,7 @@ const HeaderWrapper = styled.div`
     & #select-data{
         top:200px;
         left:200px;
+        font-size:14px;
     }
     & #select-city{
         top:300px;
@@ -36,6 +37,7 @@ const HeaderWrapper = styled.div`
         left: 200px; 
         top: 400px;
         width: 260px;
+        font-size: 15px;
     }
     
     @media screen and (max-width: 900px) {
@@ -43,6 +45,7 @@ const HeaderWrapper = styled.div`
             top: 40px;
         }
         #select-data{
+            font-size:11px;
             left:20px;
             top:90px;
             transition: all 1s ease-in;
@@ -76,6 +79,7 @@ const HeaderWrapper = styled.div`
             -webkit-transition: all .3s ease-in;
         }
         & .menus{
+            font-size: 11px;
             width: 300px;
             left: 150px;
             top: 70px;
@@ -83,11 +87,15 @@ const HeaderWrapper = styled.div`
             -webkit-transition: all .3s ease-in;
         }
         & .process{
-            position: absolute;
-            transform: translateX(-50%);
-            top:210px;
+            transform: translateX(0%);
+            top: 650px;
+            left:unset;
+            width: 100%;
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
+        }
+        & .process .button,& .process .bar{
+       
         }
         & .select-group{
             position: absolute;

@@ -75,7 +75,7 @@ class CircleMap extends Component {
             // console.log(data)
             distance = data.map((city) => {
                 //配合log，距离至少应该是1
-                return city[props.dataType]
+                return city[props.dataType] + 1
             })
         }       
         
@@ -99,6 +99,7 @@ class CircleMap extends Component {
             data.forEach((d, i) => {
                 d.distance = scale(distance[i]);
                 d.rotate = d.index / d.arrLength * Math.PI * 2;
+                
             });
         }
         
@@ -124,7 +125,11 @@ class CircleMap extends Component {
         // .range([0, 14]);
         //计算出每个圆形相应的面积
         data = data.map(d => {
-            d.radius = scale(Math.sqrt(d[attr]));
+            if(d[attr]>0){
+                d.radius = scale(Math.sqrt(d[attr]))
+            }else{
+                d.radius=0
+            }
             return d;
         });
         return data;

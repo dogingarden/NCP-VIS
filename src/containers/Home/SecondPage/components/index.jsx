@@ -4,6 +4,7 @@ import Background from './Background';
 import CircleMap from './Circle';
 import Header from './Header';
 import Wrapper from './Wrapper'
+import MenusSwitch from './MenusSwitch'
 
 class App extends React.Component {
     constructor(props) {
@@ -57,23 +58,24 @@ class App extends React.Component {
         }
         return (
             <Wrapper >
+                <MenusSwitch/>
                 <Header 
                     { ...{citiesData, centerCity: ifHas===false?null : centerCity, changeCenter, 
                         selectProvince ,bgType, dataType,dates,selectedDate,selectDate,
                         radiusType,
                         distanceType, allData
                     }}/>
-  
+                
                 <div className="svgContainer" ref={this.myRef}>
                   <svg {...{width,height}} >
                     
-                      <Background {...{chinaTopoJson,bgType,centerCity}}
+                      <Background {...{chinaTopoJson, bgType, centerCity}}
                           {...{width,height}}
-                      />            
+                      />
                       <CircleMap  {...{citiesData, bgType, dataType, 
-                        centerCity: ifHas===false?null : centerCity , 
-                        selectedProvince, chinaTopoJson, 
-                        selectedDate, maxValue, radiusType, distanceType}}
+                            centerCity: ifHas===false?null : centerCity , 
+                            selectedProvince, chinaTopoJson, 
+                            selectedDate, maxValue, radiusType, distanceType}}
                             handleChangeCernter = {changeCenter}
                             x={0}
                             y={0}

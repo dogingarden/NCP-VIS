@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-06 17:05:05
+ * @LastEditTime: 2020-03-07 12:22:53
  */
 // import 'rc-progress/assets/index.css';
 import React, { Component } from 'react';
@@ -39,7 +39,7 @@ class Process extends Component {
     // this.changeState = this.changeState.bind(this);
   }
   onHandlePlay=()=>{
-    this.countdown = setInterval(this.timer, 1000);
+    this.countdown = setInterval(this.timer, 1200);
     this.setState({
       text: "暂停"
     });
@@ -89,12 +89,14 @@ class Process extends Component {
 
   render() {
     const { color, text } = this.state;
-    const { dates, selectedDate, centerCity, dataType, allData }=this.props
+    const {
+      //  dates,
+       selectedDate, centerCity, dataType, allData , selectDate}=this.props
     // const { updateTimeline, timelineData } = this
-    let currentIndex = dates.indexOf(selectedDate) 
-    let datePrecent = ( currentIndex )/(dates.length-1)*100
+    // let currentIndex = dates.indexOf(selectedDate) 
+    // let datePrecent = ( currentIndex )/(dates.length-1)*100
     const containerStyle = {
-      width: '240px',
+      width: '300px',
     };    
     // console.log(updateTimeline)
     return (
@@ -103,7 +105,7 @@ class Process extends Component {
           <Greeting className="icons" text={text} onHandlePlay={this.onHandlePlay} onHandlePause={this.onHandlePause}/>
         </div>
         <div style={containerStyle} className="bar">
-          <Slider percent={datePrecent} color={color} {...{centerCity, dataType, allData}}/>
+          <Slider color={color} {...{centerCity, dataType, allData, selectedDate, selectDate}}/>
           {/* <Line percent={datePrecent} strokeWidth="4" strokeColor={color} /> */}
         </div>
       </ProcessWrapper>

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-07-29 08:40:18
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-05 22:12:10
+ * @LastEditTime: 2020-03-07 09:32:47
  */
 import React from 'react'
 import Wrapper from "./Wrapper";
@@ -50,10 +50,10 @@ import './styles.css';
 const fullpageOptions = {
   anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
   sectionsColor: [
-    '#ff73a1',
-    '#4BBFC3',
-    '#7BAABE',
-    '#aaaaaa',
+    '#1d1d1d',
+    '#767676',
+    '#EEEEEE',
+    'rgba(211, 211, 211, 1)',
     '#ccddff',
     '#ccc',
   ],
@@ -109,14 +109,14 @@ class Home extends React.PureComponent {
             {...fullpageOptions}
             render={() => (
               <div id="myContainer">
-                <div className="section">
+                <div className="section" id="fistSlider">
                   <div className="slide">
                     <div className="intro">
                       <h1>
                         <FormattedMessage {...messages.title} />
                       </h1>
                       <p>
-                        <FormattedMessage {...messages.desc} />
+                        <FormattedMessage {...messages.desc1} /><b><FormattedMessage {...messages.title} /></b><FormattedMessage {...messages.desc2} />
                       </p>
                     </div>
                   </div>

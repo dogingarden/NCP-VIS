@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-03-05 23:13:50
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-06 15:30:20
+ * @LastEditTime: 2020-03-06 21:50:02
  */
 import { min, max, scan } from 'd3-array';
 import { axisTop, axisRight, axisBottom, axisLeft } from 'd3-axis';
@@ -304,7 +304,7 @@ function slider(orientation, scale) {
           orientation === top
             ? '0em'
             : orientation === bottom
-            ? '.71em'
+            ? '.11em'
             : '.32em'
         )
         .text(tickFormat(value[0]));
@@ -345,11 +345,11 @@ function slider(orientation, scale) {
 
     context
       .selectAll('.axis text')
-      .attr('fill', '#aaa')
+      .attr('fill', 'rgba(0,0,0,0.5)')
       .attr(y, k * 20)
       .attr(
         'dy',
-        orientation === top ? '0em' : orientation === bottom ? '.71em' : '.32em'
+        orientation === top ? '0em' : orientation === bottom ? '.11em' : '.32em'
       )
       .attr(
         'text-anchor',
@@ -360,7 +360,7 @@ function slider(orientation, scale) {
           : 'middle'
       );
 
-    context.selectAll('.axis line').attr('stroke', '#aaa');
+    context.selectAll('.axis line').attr('stroke', '#000');
 
     context.selectAll('.parameter-value').attr('transform', function(d) {
       return transformAlong(scale(d));
@@ -517,6 +517,7 @@ function slider(orientation, scale) {
   }
 
   function updateHandle(newValue, animate) {
+
     if (selection) {
       animate = typeof animate !== 'undefined' ? animate : false;
 
@@ -582,8 +583,14 @@ function slider(orientation, scale) {
         textSelection.text(displayFormat(newValue[0]));
       }
     }
+  };
+  
+  
+  slider.updateHandle = function(newValue, animate){
+    
+    updateHandle([newValue], animate)
+    updateValue([newValue], false);
   }
-
   slider.min = function(_) {
     if (!arguments.length) return domain[0];
     domain[0] = _;

@@ -21,6 +21,7 @@ class Header extends Component {
 			dataType, dates, selectedDate, selectDate } = this.props
     	return (
 		<HeaderWrapper className="container">
+			
         	<div id="selectorcontainer">
 				
 	            <div id="select-data"></div>

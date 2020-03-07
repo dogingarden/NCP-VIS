@@ -3,11 +3,13 @@
   "app.containers.HomePage.secondSlide": "Design",
   "app.containers.HomePage.thirdSlide": "Data Vis",
   "app.containers.HomePage.fourthSlide": "About us",
-  "app.containers.HomePage.title": "NCP-VIS",
-  "app.containers.HomePage.desc": "Novel Coronavirus Pneumonia(NCP) is a severe acute respiratory syndrome that broke out in Wuhan, China in 2019. The infectious disease was caused by a new coronavirus and quickly spread to hundreds of cities in China and several countries within a short period of time. As of February 21, 2019, more than 70,000 people have been diagnosed. Our system (NCP-VIS) visually shows the trend of disease Spread in various cities. NCP-VIS uses geographic layout and radial layout to explore the trend of disease and correlation between cities.",
+  "app.containers.HomePage.title": "NPC-City-Vis",
+  "app.containers.HomePage.desc1": "Novel Coronavirus Pneumonia (NCP) is a severe acute respiratory syndrome that broke out in Wuhan, China in December 2019. The infectious disease was caused by a new coronavirus (SARS-CoV-2) and quickly spread to hundreds of cities in China and dozens of countries within three months. More than 80,000 people have been diagnosed on March 6, 2020. ",
+  "app.containers.HomePage.desc2": " shows the infection status of in various cities of China in visual way. NPC-City-Vis uses geographic layout and radial layout to explore the trend of disease and correlation between cities.",
   "app.containers.LocaleToggle.zh": "中文",
   "app.containers.LocaleToggle.en": "ENGLISH",
   "app.containers.AboutUs.author1Name": "Lingyuan Kong",
   "app.containers.AboutUs.author2Name": "Zhiren Huang",
+  "app.containers.AboutUs.author3Name": "Yeqing Tan",
   "app.containers.NotFoundPage.header": "Page not found."
 }

@@ -6,6 +6,7 @@
   "proxy": "http://localhost:8010",
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.17",
+    "@material-ui/core": "^4.9.5",
     "connected-react-router": "^6.4.0",
     "create-react-class": "^15.6.3",
     "d3": "^5.9.2",
@@ -28,6 +29,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-select": "^2.1.0",
+    "react-switch": "^5.0.1",
     "react-transition-group": "^4.2.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.3",

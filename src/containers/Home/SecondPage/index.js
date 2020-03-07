@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 16:36:09
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-06 16:19:40
+ * @LastEditTime: 2020-03-07 10:04:19
  */
 
 import React from 'react'
@@ -26,11 +26,11 @@ export default class SecondPage extends React.Component {
         showData = d.data
       }
     })
-    // return showData
+    return showData
     //只返回大于零的item
-    return showData.filter(d=>{
-      return ~~d[dataType]>0
-    })
+    // return showData.filter(d=>{
+    //   // return ~~d[dataType]>0
+    // })
   }
   
   render() {
@@ -47,7 +47,6 @@ export default class SecondPage extends React.Component {
       <Wrapper >
         <App 
           { ...{allData: citiesData, citiesData: showData,svgWidth,svgHeight,chinaTopoJson,bgType,dataType,centerCity,
-            
             radiusType,
             distanceType,
             selectedProvince,dates,selectedDate,maxValue} }

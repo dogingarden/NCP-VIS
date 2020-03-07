@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-05 22:16:47
+ * @LastEditTime: 2020-03-07 12:31:23
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
@@ -148,7 +148,8 @@ class CircleVis extends Component{
             .transition().duration(1000)
                 .attr('cx', function(d) { return projection([d.lon,d.lat])[0]; })
                .attr('cy', function(d) { return projection([d.lon,d.lat])[1]; })
-               .attr('r',  d=> { return d.radius; })
+               .attr('r',  d=> {  
+                return d.radius; })
                .style("fill",d=>{
                     let color =normalColor;
                     if(d.province===selectedProvince){
@@ -178,7 +179,9 @@ class CircleVis extends Component{
                 
             .transition().duration(1000)
                 .attr('r',  d=> { return d.radius; })
-                .attr('cx', d=> { return d.distance*Math.cos(d.rotate)+width/2;})
+                .attr('cx', d=> { 
+                    console.log(d.distance)
+                    return d.distance*Math.cos(d.rotate)+width/2;})
                 .attr('cy', d=>{
                     // console.log(d.distance*Math.sin(d.rotate)+height/2)
                     return d.distance*Math.sin(d.rotate)+height/2;})

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-06 17:13:59
+ * @LastEditTime: 2020-03-07 00:39:55
  */
 import React, { Component } from 'react';
 import SliderWrapper from './SliderWrapper'
@@ -19,6 +19,13 @@ class Slider extends Component {
 
     };
     this.ifInit = false
+    this.timeline = null
+    this.bars=null
+    this.barsEnter=null
+    this.xBand=null
+    this.y=null
+    this.container=null
+    this.xLinear=null
   }
   componentDidMount(){
     const { centerCity, dataType, allData }=this.props
@@ -26,19 +33,28 @@ class Slider extends Component {
     this.initChart(timelineData)
   }
   componentWillReceiveProps(newProps) {
-    const {centerCity, dataType, allData}=this.props
+    const {centerCity, dataType, allData, selectedDate}=this.props
     if(centerCity !==newProps.centerCity ||
       dataType!==newProps.dataType){
-        console.log(newProps.centerCity)
         const timelineData = getTimelineData(newProps.centerCity, newProps.dataType, allData)
-        this.drawChart(timelineData)
+        this.updateChart(timelineData,newProps.selectedDate,newProps.centerCity)
+      }
+      if(selectedDate!==newProps.selectedDate){
+        this.updateDate(newProps.selectedDate)
       }
   }
+  updateDate(nextDate){
+    var parseTime = d3.timeParse("%Y-%m-%d");
+    this.timeline.updateHandle(parseTime(nextDate))
+    this.updateBars(parseTime(nextDate))
+  }
+  
   initChart(timelineData){
     // const { percent, color, timelineData } = newProps
-    var width = 220;
+    const { selectedDate }=this.props
+    var width = 300;
     var height = 100;
-    var margin = { top: 30, right: 20, bottom: 30, left:20 };
+    var margin = { top: 10, right: 50, bottom: 50, left:20 };
     var parseTime = d3.timeParse("%Y-%m-%d");
     timelineData.forEach(d=>{
       d.date = parseTime(d.date);
@@ -57,7 +73,7 @@ class Slider extends Component {
       .domain(timelineData.map(d => d.date))
       .range([margin.left, width - margin.right])
       .padding(padding);
-
+    
     var xLinear = d3
       .scaleTime()
       .domain(d3.extent(timelineData, function(d) { return d.date; }))
@@ -69,7 +85,7 @@ class Slider extends Component {
           xBand.step() * padding -
           0.5,
       ]);
-
+    
     var y = d3
       .scaleLinear()
       .domain([0, d3.max(timelineData, d => d.value)])
@@ -82,26 +98,29 @@ class Slider extends Component {
         .call(
           d3
             .axisRight(y)
-            .tickValues([1e4])
-            .tickFormat(d3.format('($.2s'))
+            .tickValues([d3.max(timelineData, d => d.value)])
+            .tickFormat(d3.format('~s'))
         )
         .call(g => g.select('.domain').remove());
+        
+    this.timeline=sliderBottom(xLinear)
+      .step(timelineData[1].date-timelineData[0].date)
+      .ticks(4)
+      .tickFormat(d3.timeFormat('%m-%d'))
+      .default(parseTime(selectedDate))
+      .on('onchange', value => this.handleSliderMove(value))
 
     var slider = g =>
-      g.attr('transform', `translate(0,${height - margin.bottom})`).call(
-        sliderBottom(xLinear)
-          .step(1)
-          .ticks(4)
-          .default(9)
-          .on('onchange', value => draw(value))
+      g.attr('transform', `translate(0,${height - margin.bottom + 2})`).call(
+        this.timeline
       );
-
-    var bars = svg
+    this.container=svg
       .append('g')
+    this.bars = this.container
       .selectAll('rect')
       .data(timelineData);
 
-    var barsEnter = bars
+    this.barsEnter = this.bars
       .enter()
       .append('rect')
       .attr('x', d => {
@@ -111,20 +130,95 @@ class Slider extends Component {
       .attr('height', d => y(0) - y(d.value))
       .attr('width', xBand.bandwidth());
 
-    svg.append('g').call(yAxis);
+    svg.append('g').attr("class", "max-y").call(yAxis);
     svg.append('g').call(slider);
+    
+    this.updateBars(timelineData[0].date)
+    this.xLinear = xLinear
+    this.xBand=xBand
+    this.y=y
+  }
+  handleSliderMove(date){
+    const { selectedDate,selectDate }=this.props
+    
+    if(date!==selectedDate){
+      //识别是拖拽还是自动播放，若是拖拽进行更新系统日期的操作
+      let dateStr=d3.timeFormat('%Y-%m-%d')(date)
+      selectDate(dateStr)
+    }
+    this.updateBars(date)
+  }
+  updateBars = (selected) => {
+    const format=d3.timeFormat('%m-%d')
+    this.barsEnter
+      .merge(this.bars)
+      .attr('fill', d => {
+        return (format(d.date) === format(selected) ? '#FCD40D' : '#e0e0e0')
+      })
+  }
+  updateChart(timelineData,selectedDate,centerCity){
+    
+    const parseTime = d3.timeParse("%Y-%m-%d");
+    const format=d3.timeFormat('%m-%d')
 
-    var draw = selected => {
-      barsEnter
-        .merge(bars)
-        .attr('fill', d => (d.date === selected ? '#bad80a' : '#e0e0e0'));
+    timelineData.forEach(d=>{
+      d.date = parseTime(d.date);
+      d.value = +d.value;
+    })
 
-      // d3.select('p#value-new-york-times').text(
-      //   d3.format('$,.2r')(dataNewYorkTimes[selected - 1].value)
-      // );
-    };
+    this.xBand.domain(timelineData.map(d => d.date))
+    this.xLinear.domain(d3.extent(timelineData, function(d) { return d.date; }))
+    this.y.domain([0, d3.max(timelineData, d => d.value)])
 
-    draw(9);
+    var yAxis = g =>
+      g
+        .call(
+          d3
+            .axisRight(this.y)
+            .tickValues([d3.max(timelineData, d => d.value)])
+            .tickFormat(d3.format('.2s'))
+        )
+        .call(g => g.select('.domain').remove()
+      );
+
+    if(centerCity===null){
+      console.log('0')
+      d3.select("#slider-timeline")
+        .select(".max-y")
+        // .selectAll()
+        .transition()
+        .duration(300)
+        .attr("opacity",0)
+    }else{
+      d3.select("#slider-timeline")
+        .select(".max-y")
+        .transition()
+        .duration(300)
+        .attr("opacity",1)
+        .call(yAxis)
+    }
+    this.bars = this.container
+      .selectAll('rect')
+      .data(timelineData);
+    this.barsEnter = this.bars
+      .enter()
+      .append('rect')
+    
+    this.bars.exit().remove()
+
+    this.barsEnter
+      .merge(this.bars)
+      .transition()
+      .duration(300)
+      .attr('x', d => {
+        return this.xBand(d.date)
+      })
+      .attr('y', d => this.y(d.value))
+      .attr('height', d => this.y(0) - this.y(d.value))
+      .attr('width', this.xBand.bandwidth())
+      .attr('fill', d => {
+        return (format(d.date) === format(parseTime(selectedDate)) ? '#FCD40D' : '#e0e0e0')
+      })
   }
   render() {
     return (

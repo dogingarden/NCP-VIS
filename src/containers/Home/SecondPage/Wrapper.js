@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-23 17:09:00
+ * @LastEditTime: 2020-03-07 00:55:23
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -11,7 +11,10 @@ const Wrapper = styled.div`
     height:100%;
     margin:0px;
     font-size: 11px;
-	background: radial-gradient(ellipse at center, rgba(174, 174, 174,1) 0%,rgba(174, 174, 174,1) 47%,rgba(174, 174, 174,1) 100%);
+    background: radial-gradient(ellipse at center, 
+        rgba(211, 211, 211,0.8) 0%,
+        rgba(190, 190, 190,0.8) 47%,
+        rgba(174, 174, 174,0.6) 100%);
 	text-align: center;
 	padding:0 !important;
     

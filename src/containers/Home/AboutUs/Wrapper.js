@@ -3,28 +3,31 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-23 17:12:35
+ * @LastEditTime: 2020-03-07 01:14:18
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
     width:100%;
     height:100%;
     margin:0px;
-    display: flex | inline-flex;
     max-width: 1200px;
     
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    clear: both;
+
     & .post-container{
-        width: calc(33.333333% - 30px);
+        width: calc(28% - 30px);
         margin: 0 15px;
         border: 1px solid #cecece;
         background: #cecece;
         box-shadow: 0 3px 6px -4px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         display: inline-block;
-        min-width: 500px;
+        min-width: 300px;
     }
     & figure{
         margin: 10px;
-        width: 100%;
         height: auto;
     }
     & img{
