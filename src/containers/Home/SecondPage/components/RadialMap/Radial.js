@@ -3,14 +3,14 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-18 22:26:53
+ * @LastEditTime: 2020-03-10 12:43:52
  */
 
 import React, { Component } from 'react';
 
-const BlankColor = 'rgb(20,240,240)'
+const BlankColor = '#EDF6F7'//'#159BC9'
 // const StrokeColor = 'rgb(174, 174, 174)'
-const StrokeWidth = 1
+const StrokeWidth = 2
 // Combine array of colors and quantize scale to pick fill color
 // Return a <path> element
 class Radial extends Component {

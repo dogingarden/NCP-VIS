@@ -3,16 +3,16 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 12:31:23
+ * @LastEditTime: 2020-03-10 11:59:15
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import * as d3 from 'd3';
-
-const normalColor="#1856a3",centerColor="#fcd40d",provinceColor="#cce097";
-const opacity=0.6;
+//1856a3
+const normalColor="#A35F90",centerColor="#fcd40d",provinceColor="#cce097";
+const opacity=0.7//0.6;
 const strokeOpacity=0.9;
-const strokeColor="#222222"
+const strokeColor="#222222"//"#222222"
 class CircleVis extends Component{
     constructor(props) {
         super(props);
@@ -180,7 +180,6 @@ class CircleVis extends Component{
             .transition().duration(1000)
                 .attr('r',  d=> { return d.radius; })
                 .attr('cx', d=> { 
-                    console.log(d.distance)
                     return d.distance*Math.cos(d.rotate)+width/2;})
                 .attr('cy', d=>{
                     // console.log(d.distance*Math.sin(d.rotate)+height/2)

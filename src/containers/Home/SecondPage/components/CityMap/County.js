@@ -3,13 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-21 00:25:53
+ * @LastEditTime: 2020-03-10 12:40:46
  */
 
 import React, { Component } from 'react';
 
-const BlankColor = 'rgb(20,240,240)'
-const StrokeColor = 'rgb(174, 174, 174)'
+const BlankColor = '#cfcfcf'
+const StrokeColor = '#E5E5E3'
 const StrokeWidth = 1
 // Combine array of colors and quantize scale to pick fill color
 // Return a <path> element
