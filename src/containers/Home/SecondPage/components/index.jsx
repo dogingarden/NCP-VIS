@@ -5,6 +5,7 @@ import CircleMap from './Circle';
 import Header from './Header';
 import Wrapper from './Wrapper'
 import MenusSwitch from './MenusSwitch'
+import Process from "./Process";
 
 class App extends React.Component {
     constructor(props) {
@@ -59,13 +60,14 @@ class App extends React.Component {
         return (
             <Wrapper >
                 <MenusSwitch/>
-                <Header 
-                    { ...{citiesData, centerCity: ifHas===false?null : centerCity, changeCenter, 
-                        selectProvince ,bgType, dataType,dates,selectedDate,selectDate,
-                        radiusType,
-                        distanceType, allData
-                    }}/>
                 
+                <Header 
+                    { ...{citiesData, changeCenter, 
+                        selectProvince ,bgType, dataType,dates, selectedDate, selectDate,
+                        radiusType,
+                        distanceType
+                    }}/>
+                <Process {...{dates, selectDate, selectedDate, allData, centerCity, dataType }}/>
                 <div className="svgContainer" ref={this.myRef}>
                   <svg {...{width,height}} >
                     

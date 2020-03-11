@@ -9,15 +9,14 @@ import FilterLink from '../containers/FilterLink';
 import FilterType from '../containers/FilterType';
 import FilterRadius from '../containers/FilterRadius';
 import FilterDistance from '../containers/FilterDistance';
-import Process from "./Process";
+
 import HeaderWrapper from './HeaderWrapper'
 
 class Header extends Component {
 	render() {
-		const { citiesData,allData, changeCenter, selectProvince, selectedProvince, bgType,
+		const { citiesData, changeCenter, selectProvince, selectedProvince, bgType,
 			distanceType,
 			  radiusType,
-			  centerCity,
 			dataType, dates, selectedDate, selectDate } = this.props
     	return (
 		<HeaderWrapper className="container">
@@ -115,7 +114,7 @@ class Header extends Component {
 					
 				
 				</div>
-				<Process {...{dates, selectDate, selectedDate, allData, centerCity, dataType }}/>
+				
 		    </div>
 		</HeaderWrapper>	
 	)}

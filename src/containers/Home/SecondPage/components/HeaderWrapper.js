@@ -3,30 +3,36 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 00:47:06
+ * @LastEditTime: 2020-03-11 13:52:57
  */
 import styled from 'styled-components';
 const HeaderWrapper = styled.div`
     position: absolute;
-    z-index:100;
+    z-index:101;
     width: 100%;
-    & #selectorcontainer { width: 100%; margin: auto auto; position: relative;} 
+    top:20%;
+    left:10%;
+    & #selectorcontainer { 
+        width: 100%; 
+        margin: auto auto; 
+        position: relative;
+    } 
     & #select-data{
-        top:200px;
-        left:200px;
+        top:0px;
+        left:0px;
         font-size:14px;
     }
     & #select-city{
-        top:300px;
-        left:200px;
+        top:100px;
+        left:0px;
     }
     & #select-province{
-        top:350px;
-        left:200px;
+        top:150px;
+        left:00px;
     }
     & #select-date{
-        top:250px;
-        left:200px;
+        top:50px;
+        left:0px;
     }
     & .menus{
         list-style: none; 
@@ -34,15 +40,17 @@ const HeaderWrapper = styled.div`
         margin: 0; 
         display: inline-block; 
         position: absolute; 
-        left: 200px; 
-        top: 400px;
+        left: 0px; 
+        top: 200px;
         width: 260px;
         font-size: 15px;
     }
     
     @media screen and (max-width: 900px) {
+        top:0;
+        left:0;
         & #selectorcontainer{
-            top: 40px;
+            top:40px;
         }
         #select-data{
             font-size:11px;
@@ -52,8 +60,8 @@ const HeaderWrapper = styled.div`
             -webkit-transition: all .3s ease-in;
         }
         & #select-city{
-            margin:0 4px;
-            float:left;
+            margin:0 auto; 
+            float:unset;
             left: unset;
             position: relative;
             top: unset;
@@ -61,8 +69,9 @@ const HeaderWrapper = styled.div`
             -webkit-transition: all .3s ease-in;
         }
         & #select-province{
-            margin:0 4px;
-            float:left;
+            margin:0 auto; 
+            display: inline-block;
+            float:unset;
             left: unset;
             position: relative;
             top: unset;
@@ -70,11 +79,13 @@ const HeaderWrapper = styled.div`
             -webkit-transition: all .3s ease-in;
         }
         & #select-date{
-            margin:0 4px;
-            float:left;
+            
+            margin:0 auto; 
+            float:unset;
             left: unset;
             position: relative;
             top: unset;
+            top:-1px;
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
         }
@@ -86,23 +97,13 @@ const HeaderWrapper = styled.div`
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
         }
-        & .process{
-            transform: translateX(0%);
-            top: 650px;
-            left:unset;
-            width: 100%;
-            transition: all 1s ease-in;
-            -webkit-transition: all .3s ease-in;
-        }
-        & .process .button,& .process .bar{
-       
-        }
+
         & .select-group{
             position: absolute;
             transform: translateX(-50%);
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
-            width: 390px;
+            width: 100%;
             top: 160px;
             left: 50%;
             text-align:center;

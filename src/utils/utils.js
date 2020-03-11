@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-01-07 14:03:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 12:28:37
+ * @LastEditTime: 2020-03-11 13:21:43
  */
 const combineData = function(data){
     let dates=[]
@@ -58,7 +58,6 @@ const combineData = function(data){
             d.arrLength = tempArr.data.length
         })
     })
-    console.log(showData)
     //一个是选中 一个是全部
     let datesObj = {selected: dates[0], all: dates}
     return {data: showData, dates: datesObj, maxValue}

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 12:22:53
+ * @LastEditTime: 2020-03-11 13:30:12
  */
 // import 'rc-progress/assets/index.css';
 import React, { Component } from 'react';
@@ -28,7 +28,7 @@ class Process extends Component {
     
     this.state = {
       percent: 0,
-      color: 'rgb(24, 86, 163)',
+      color: '#cfcfcf',
       text: "播放",
       
     };
@@ -100,7 +100,7 @@ class Process extends Component {
     };    
     // console.log(updateTimeline)
     return (
-      <ProcessWrapper className="process">
+      <ProcessWrapper className="process-container">
         <div className="button">
           <Greeting className="icons" text={text} onHandlePlay={this.onHandlePlay} onHandlePause={this.onHandlePause}/>
         </div>

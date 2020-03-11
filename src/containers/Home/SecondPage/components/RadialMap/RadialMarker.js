@@ -3,14 +3,14 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-10 12:45:31
+ * @LastEditTime: 2020-03-11 13:39:53
  */
 
 import React, { Component } from 'react'
 
-const BlankColor = '#848484'//'#159BC9'//
-const TextColor = '#848484'
-const TextSize = 16
+const BlankColor = '#EDF6F7'//'#159BC9'//
+const TextColor = 'rgb(174, 174, 174)'
+const TextSize = 14
 // const StrokeColor = 'rgb(174, 174, 174)'
 const StrokeWidth = 1
 // Combine array of colors and quantize scale to pick fill color

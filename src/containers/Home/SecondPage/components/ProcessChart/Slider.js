@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 00:39:55
+ * @LastEditTime: 2020-03-11 13:41:17
  */
 import React, { Component } from 'react';
 import SliderWrapper from './SliderWrapper'
@@ -153,7 +153,7 @@ class Slider extends Component {
     this.barsEnter
       .merge(this.bars)
       .attr('fill', d => {
-        return (format(d.date) === format(selected) ? '#FCD40D' : '#e0e0e0')
+        return (format(d.date) === format(selected) ? '#FCD40D' : '#EDF6F7')
       })
   }
   updateChart(timelineData,selectedDate,centerCity){
@@ -217,7 +217,7 @@ class Slider extends Component {
       .attr('height', d => this.y(0) - this.y(d.value))
       .attr('width', this.xBand.bandwidth())
       .attr('fill', d => {
-        return (format(d.date) === format(parseTime(selectedDate)) ? '#FCD40D' : '#e0e0e0')
+        return (format(d.date) === format(parseTime(selectedDate)) ? '#FCD40D' : '#EDF6F7')
       })
   }
   render() {
