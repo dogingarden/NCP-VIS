@@ -3,13 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 13:39:53
+ * @LastEditTime: 2020-03-11 22:20:15
  */
 
 import React, { Component } from 'react'
 
-const BlankColor = '#EDF6F7'//'#159BC9'//
-const TextColor = 'rgb(174, 174, 174)'
+const BlankColor = 'rgb(229, 229, 227)'//'#159BC9'//
+const TextColor = 'rgb(229, 229, 227)'
 const TextSize = 14
 // const StrokeColor = 'rgb(174, 174, 174)'
 const StrokeWidth = 1

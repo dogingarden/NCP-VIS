@@ -3,13 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-10 11:59:15
+ * @LastEditTime: 2020-03-11 22:23:04
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import * as d3 from 'd3';
 //1856a3
-const normalColor="#A35F90",centerColor="#fcd40d",provinceColor="#cce097";
+const normalColor="#6C3F60",centerColor="#fcd40d",provinceColor="#cce097";
 const opacity=0.7//0.6;
 const strokeOpacity=0.9;
 const strokeColor="#222222"//"#222222"
@@ -64,7 +64,7 @@ class CircleVis extends Component{
         //         .transition().duration(1000).delay(function(d) { return d * 40; })
                 
         // }
-        let enter=circles.enter()
+        let enter = circles.enter()
             .append('circle')
             .attr('r',  0)
             .on("click", d=>{handleChangeCernter(d.city)})
@@ -168,22 +168,29 @@ class CircleVis extends Component{
                
         }
         else if(bgType==="RADIAL"){
-            enter.attr('cx', d=> { 
-                
-                return d.distance*Math.cos(d.rotate)+width/2;})
-                .attr('cy', d=>{
-                    // console.log(d.distance*Math.sin(d.rotate)+height/2)
-                    return d.distance*Math.sin(d.rotate)+height/2;})
+            enter.attr('cx', d=> {return width/2;})
+                .attr('cy', d=>{return height/2;})
             circles.merge(enter)
                 .attr('class', 'item')
-                
             .transition().duration(1000)
                 .attr('r',  d=> { return d.radius; })
+                // .attr('cx', d=> {return width/2;})
+                // .attr('cy', d=>{return height/2;})
                 .attr('cx', d=> { 
-                    return d.distance*Math.cos(d.rotate)+width/2;})
-                .attr('cy', d=>{
-                    // console.log(d.distance*Math.sin(d.rotate)+height/2)
-                    return d.distance*Math.sin(d.rotate)+height/2;})
+                    if(d.radius===0){
+                        return width / 2;
+                    }else{
+                        return d.distance*Math.cos(d.rotate)+width/2;
+                    }
+                     
+                })
+                .attr('cy', d=>{ 
+                    if(d.radius===0){
+                        return height/2;
+                    }else{
+                        return d.distance*Math.sin(d.rotate)+height/2;
+                    }
+                })
                 .style("fill",d=>{
                     let color =normalColor;
                     if(d.province===selectedProvince){
@@ -193,7 +200,6 @@ class CircleVis extends Component{
                         color = centerColor;
                     }
                     return color;
-
                 })
                 .style('stroke', strokeColor)
                 .style("stroke-opacity",strokeOpacity)
@@ -482,7 +488,6 @@ class CircleVis extends Component{
 
     componentDidUpdate(prevProps, prevState) {
         this.updateCircles(prevProps, prevState)
-        
     }
     render() {
         return (

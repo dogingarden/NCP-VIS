@@ -17,6 +17,7 @@ class Header extends Component {
 		const { citiesData, changeCenter, selectProvince, selectedProvince, bgType,
 			distanceType,
 			  radiusType,
+			  centerCity,
 			dataType, dates, selectedDate, selectDate } = this.props
     	return (
 		<HeaderWrapper className="container">
@@ -107,9 +108,7 @@ class Header extends Component {
 				<div className="select-group">
 					<SelectDate {...{dates,selectDate,selectedDate}}/>
 					<SelectCity 
-						citiesData={this.props.citiesData} 
-						centerCity={this.props.centerCity}
-						{...{changeCenter}}/>
+						{...{changeCenter, centerCity, citiesData}}/>
 					<SelectProvince {...{citiesData,selectProvince,selectedProvince}}/>
 					
 				

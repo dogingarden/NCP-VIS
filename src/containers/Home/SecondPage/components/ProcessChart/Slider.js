@@ -3,13 +3,14 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 13:41:17
+ * @LastEditTime: 2020-03-11 22:14:09
  */
 import React, { Component } from 'react';
 import SliderWrapper from './SliderWrapper'
 import * as d3 from 'd3'
 import { sliderBottom } from './d3-slider';
 import { getTimelineData } from 'utils/utils'
+const normalColor="rgb(229, 229, 227)"
 
 class Slider extends Component {
   constructor() {
@@ -153,7 +154,7 @@ class Slider extends Component {
     this.barsEnter
       .merge(this.bars)
       .attr('fill', d => {
-        return (format(d.date) === format(selected) ? '#FCD40D' : '#EDF6F7')
+        return (format(d.date) === format(selected) ? '#FCD40D' : normalColor)
       })
   }
   updateChart(timelineData,selectedDate,centerCity){
@@ -217,7 +218,7 @@ class Slider extends Component {
       .attr('height', d => this.y(0) - this.y(d.value))
       .attr('width', this.xBand.bandwidth())
       .attr('fill', d => {
-        return (format(d.date) === format(parseTime(selectedDate)) ? '#FCD40D' : '#EDF6F7')
+        return (format(d.date) === format(parseTime(selectedDate)) ? '#FCD40D' : normalColor)
       })
   }
   render() {

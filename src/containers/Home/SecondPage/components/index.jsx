@@ -65,6 +65,7 @@ class App extends React.Component {
                     { ...{citiesData, changeCenter, 
                         selectProvince ,bgType, dataType,dates, selectedDate, selectDate,
                         radiusType,
+                        centerCity: ifHas===false?null : centerCity ,
                         distanceType
                     }}/>
                 <Process {...{dates, selectDate, selectedDate, allData, centerCity, dataType }}/>

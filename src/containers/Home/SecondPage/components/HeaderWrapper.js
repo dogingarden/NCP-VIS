@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 13:52:57
+ * @LastEditTime: 2020-03-11 22:19:21
  */
 import styled from 'styled-components';
 const HeaderWrapper = styled.div`
@@ -12,6 +12,7 @@ const HeaderWrapper = styled.div`
     width: 100%;
     top:20%;
     left:10%;
+    
     & #selectorcontainer { 
         width: 100%; 
         margin: auto auto; 
@@ -21,6 +22,9 @@ const HeaderWrapper = styled.div`
         top:0px;
         left:0px;
         font-size:14px;
+    }
+    & #select-data text{
+        fill: #121212;
     }
     & #select-city{
         top:100px;
@@ -44,6 +48,7 @@ const HeaderWrapper = styled.div`
         top: 200px;
         width: 260px;
         font-size: 15px;
+        color: #444444;
     }
     
     @media screen and (max-width: 900px) {

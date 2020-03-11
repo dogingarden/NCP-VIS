@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-10 12:43:14
+ * @LastEditTime: 2020-03-11 22:09:28
  * // background: radial-gradient(ellipse at center, 
  * rgba(211, 211, 211,0.8) 0%,
         // rgba(190, 190, 190,0.8) 47%,
@@ -15,10 +15,12 @@ const Wrapper = styled.div`
     height:100%;
     margin:0px;
     font-size: 11px;
-    background: radial-gradient( circle ,
-        rgba(210, 210, 210,0.9) 0%,
-        rgba(228, 228, 228,0.9) 20%,
-        rgba(228, 228, 228,1) 100%);
+    background:rgb(191, 191, 191);
+    //#EAEAEA;
+    // background: radial-gradient( circle ,
+    //     rgba(210, 210, 210,0.9) 0%,
+    //     rgba(228, 228, 228,0.9) 20%,
+    //     rgba(228, 228, 228,1) 100%);
 	text-align: center;
 	padding:0 !important;
     

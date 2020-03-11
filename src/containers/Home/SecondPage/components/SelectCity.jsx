@@ -86,6 +86,7 @@ const SelectCity = createClass({
   render () {
     const { multi, multiValue, isClearable, value} = this.state;
     const { citiesData , centerCity } = this.props;
+    console.log(centerCity)
     // const selectedCity={ value: centerCity, label: centerCity };
     const placeholder = <span>选择城市</span>;
     let selectedCity

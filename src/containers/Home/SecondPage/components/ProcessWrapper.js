@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 13:38:00
+ * @LastEditTime: 2020-03-11 22:02:37
  */
 import styled from 'styled-components';
 const ProcessWrapper = styled.div`
@@ -14,7 +14,7 @@ const ProcessWrapper = styled.div`
     padding: 0; 
     margin: 0; 
     left: 9%; 
-    bottom: 220px;
+    top: calc(20% + 330px);
     width: 300px;
     z-index:100;
     & .icon{

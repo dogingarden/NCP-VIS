@@ -3,13 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-10 12:40:46
+ * @LastEditTime: 2020-03-11 22:11:01
  */
 
 import React, { Component } from 'react';
 
-const BlankColor = '#cfcfcf'
-const StrokeColor = '#E5E5E3'
+const BlankColor = '#E5E5E3'
+const StrokeColor = '#cfcfcf'
 const StrokeWidth = 1
 // Combine array of colors and quantize scale to pick fill color
 // Return a <path> element
@@ -41,7 +41,7 @@ class County extends Component {
             );
         }else{
             return (
-                <path d={geoPath(feature)} stroke= {"rgb(174, 174, 174)"} style={{fill: "rgb(121, 116, 116)",stroke: "rgb(121, 116, 116)"}} strokeWidth={2} title={feature.id} />
+                <path d={geoPath(feature)} stroke= {"rgb(174, 174, 174)"} style={{fill: "rgb(121, 116, 116)",stroke: BlankColor}} strokeWidth={2} title={feature.id} />
             );
         }
     }
