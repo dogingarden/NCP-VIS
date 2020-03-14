@@ -1,16 +1,19 @@
-# 疫城记
-新型冠状病毒肺炎是2019年年底爆发于中国武汉的严重急性呼吸道综合征。该传染病因新型冠状病毒引起，在三个月内迅速传播到中国国内数百个城市及数十个国家，截至2020年3月6日已累计确诊超过8万人，并且超过3千人因此丧生。 疫城记 通过可视化的方式展示了中国各个城市病情状况，使用地理布局和径向布局的形式来探索城市间的疫情变化趋势与关联。
+# NPC-City-Vis
 
-## 使用说明
+English| [中文](./README_CN.md)
 
-### 方式一：直接网页访问
-本项目已经部署在个人网站，可以直接访问 [这里](http://vis27.com/NCP/)。
+NPC-City-Vis shows the infection status of in various cities of China in visual way. NPC-City-Vis uses geographic layout and radial layout to explore the trend of disease and correlation between cities.
 
-### 方式二：本地运行
+## Try it yourself
+
+### method 1：Visit our website
+This project has been deployed on personal website, please visit directly [here](http://vis27.com/NCP/)。
+
+### method 2：Start local services
 
 ```bash
-# 安装依赖
+# install dependencies
 $ npm install
-# 启动服务，自动打开浏览器
+# start service
 $ npm start
 ```
