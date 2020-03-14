@@ -128,7 +128,7 @@ p{
 
 #menu li a{
   color: #fff;
-  padding: 0 1.1em 1.1em 1.1em;
+  padding: 0 1.1em 0 1.1em;
 }
 
 
@@ -310,7 +310,7 @@ p{
       -webkit-transition: all .3s ease-in;
   }
   .svgContainer {
-    transform: translateY(70px);
+    transform: translateY(55px);
     transition: all 1s ease-in;
       -webkit-transition: all .3s ease-in;
   }
