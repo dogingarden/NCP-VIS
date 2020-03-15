@@ -43,7 +43,7 @@ class App extends React.Component {
             selectProvince,
             selectedProvince,
             distanceType
-            } = this.props
+        } = this.props
         const width=svgWidth
         const height=svgHeight
 
@@ -82,7 +82,7 @@ class App extends React.Component {
                             handleChangeCernter = {changeCenter}
                             x={0}
                             y={0}
-                            {...{width,height}}
+                            {...{width, height}}
                           />
                   </svg> 
                 </div>

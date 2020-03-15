@@ -11,5 +11,29 @@
   "app.containers.AboutUs.author1Name": "Lingyuan Kong",
   "app.containers.AboutUs.author2Name": "Zhiren Huang",
   "app.containers.AboutUs.author3Name": "Yeqing Tan",
-  "app.containers.NotFoundPage.header": "Page not found."
+
+  "app.containers.AboutUs.author1Task": "Front-end Development | System design",
+  "app.containers.AboutUs.author2Task": "Data Mining | System design",
+  "app.containers.AboutUs.author3Task": "Product Design | System design",
+  "app.containers.AboutUs.homepage":"home page",
+
+  "app.containers.NotFoundPage.header": "Page not found.",
+
+  "app.containers.Design.idea1title": "Radial layout",
+  "app.containers.Design.idea2title": "Scaling",
+  "app.containers.Design.idea3title": "Temporal dynamic",
+  
+  "app.containers.Design.idea1desc1": "Compared with the geographical distribution, the ",
+  "app.containers.Design.idea1desc2": "difference",
+  "app.containers.Design.idea1desc3": " between indicators and ",
+  "app.containers.Design.idea1desc4": "ranking relationships",
+  "app.containers.Design.idea1desc5": " between cities are more clearly presented.",
+
+  "app.containers.Design.idea2desc1": "Linear scaling guarantees accurate quantized values, while logarithmic scaling focuses on ",
+  "app.containers.Design.idea2desc2": "long-tail effects",
+  "app.containers.Design.idea2desc3": ", making it easy to observe the cities with small indicator values.",
+  
+  "app.containers.Design.idea3desc1": "The dynamic process of each indicator changing with the date shows the ",
+  "app.containers.Design.idea3desc2": "dynamics",
+  "app.containers.Design.idea3desc3": " of the epidemic situation in each city."
 }

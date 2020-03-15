@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 22:19:21
+ * @LastEditTime: 2020-03-14 23:31:14
  */
 import styled from 'styled-components';
 const HeaderWrapper = styled.div`
@@ -46,7 +46,7 @@ const HeaderWrapper = styled.div`
         position: absolute; 
         left: 0px; 
         top: 200px;
-        width: 260px;
+        width: 340px;
         font-size: 15px;
         color: #444444;
     }

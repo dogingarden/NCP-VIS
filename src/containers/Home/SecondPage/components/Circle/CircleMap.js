@@ -111,6 +111,7 @@ class CircleMap extends Component {
         const { maxValue, radiusType, width, height } = this.props
 
         let max = d3.max([d3.min([width, height]) / 50, 13])
+        //固定指标一般比较大，所以缩小一半
         if (dataType === "POP" || dataType === "GDP" || dataType === "doctor" || dataType === "bed" || dataType === "hospital") {
             max = max / 2
         }
@@ -126,9 +127,10 @@ class CircleMap extends Component {
         //计算出每个圆形相应的面积
         data = data.map(d => {
             if(d[attr]>0){
+                
                 d.radius = scale(Math.sqrt(d[attr]))
             }else{
-                d.radius=0
+                d.radius = 0
             }
             return d;
         });

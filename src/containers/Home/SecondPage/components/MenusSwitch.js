@@ -1,3 +1,10 @@
+/*
+ * @Author: konglingyuan
+ * @Description: A Vue/React Project File
+ * @Date: 2020-03-07 10:07:34
+ * @LastEditors: konglingyuan
+ * @LastEditTime: 2020-03-14 21:29:58
+ */
 import React, { Component } from "react";
 import Switch from "react-switch";
 import * as d3 from 'd3'
@@ -17,17 +24,25 @@ class MenusSwitch extends Component {
             .duration(300)
             .attr("opacity",0)
             .style("display","none")
-            // .on("end",()=>{
-            //     d3.select(this).style("display","none")
-            // })
+        d3.select(".process-container")
+            .transition()
+            .duration(300)
+            .attr("opacity",0)
+            .style("display","none")
     }else{
         
         d3.select("#selectorcontainer")
-            .style("display","block")
-            .attr("opacity",0)
-            .transition()
-            .duration(300)
-            .attr("opacity",1)
+          .style("display","block")
+          .attr("opacity",0)
+          .transition()
+          .duration(300)
+          .attr("opacity",1)
+        d3.select(".process-container")
+          .style("display","block")
+          .attr("opacity",0)
+          .transition()
+          .duration(300)
+          .attr("opacity",1)
     }
       
     this.setState({ checked });

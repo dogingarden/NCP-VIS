@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-23 14:36:20
+ * @LastEditTime: 2020-03-14 22:43:52
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -46,6 +46,7 @@ const Wrapper = styled.div`
         font-size: 20px;
         font-weight: 500;
         line-height: 1.6em;
+        margin: 0 20px;
     }
     & .post-desc{
         font-size: 14px;
@@ -55,6 +56,7 @@ const Wrapper = styled.div`
         margin-bottom: 0;
         opacity: .9;
         color: #222;
+        margin: 0 20px;
     }
     @media (max-width: 768px){
         flex-direction: column;
@@ -96,9 +98,11 @@ const Wrapper = styled.div`
         }
         & h3{
             text-align: left;
+            margin: 0 20px;
         }
         & .post-desc{
             text-align: left;
+            margin: 0 20px;
         }
     }
 `;

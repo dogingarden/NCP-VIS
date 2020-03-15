@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 16:36:09
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 01:03:51
+ * @LastEditTime: 2020-03-14 22:05:11
  */
 
 import React from 'react'
@@ -33,9 +33,11 @@ export default class AboutUs extends React.PureComponent {
               <FormattedMessage {...messages.author1Name} />
             </h3>
             <div className="post-desc">
-              系统设计、前端开发
+              <FormattedMessage {...messages.author1Task} />
               <br/>
-              <a href="https://www.vis27.com/" target={'_blank'}>个人主页</a>
+              <a href="https://www.vis27.com/" target={'_blank'}>
+                <FormattedMessage {...messages.homepage} />
+              </a>
             </div>
           </div>
         </div>
@@ -53,9 +55,11 @@ export default class AboutUs extends React.PureComponent {
               <FormattedMessage {...messages.author2Name} />
             </h3>
             <div className="post-desc">
-              系统设计、数据处理
+              <FormattedMessage {...messages.author2Task} />
               <br/>
-              <a href="https://www.zhirenhuang.com/" target={'_blank'}>个人主页</a>
+              <a href="https://www.zhirenhuang.com/" target={'_blank'}>
+                <FormattedMessage {...messages.homepage} />
+              </a>
             </div>
           </div>
           
@@ -74,9 +78,11 @@ export default class AboutUs extends React.PureComponent {
               <FormattedMessage {...messages.author3Name} />
             </h3>
             <div className="post-desc">
-              系统设计、产品经理
+              <FormattedMessage {...messages.author3Task} />
               <br/>
-              <a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIxNzM0MTczOA==#wechat_webview_type=1&wechat_redirect" target={'_blank'}>个人主页</a>
+              <a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIxNzM0MTczOA==#wechat_webview_type=1&wechat_redirect" target={'_blank'}>
+                <FormattedMessage {...messages.homepage} />
+              </a>
             </div>
           </div>
         </div>

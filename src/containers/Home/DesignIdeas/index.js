@@ -3,12 +3,12 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 16:36:09
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-26 09:43:45
+ * @LastEditTime: 2020-03-14 21:51:01
  */
 
 import React from 'react'
-// import { FormattedMessage } from 'react-intl'
-// import messages from './messages'
+import { FormattedMessage } from 'react-intl'
+import messages from './messages'
 import Wrapper from "./Wrapper";
 import image1 from './images/image1.png';
 import image2 from './images/image2.png';
@@ -32,10 +32,14 @@ export default class AboutUs extends React.PureComponent {
           </figure>
           <div className="post-content">
             <h3>
-              径向布局(Radial layout)
+              <FormattedMessage {...messages.idea1title} />
             </h3>
             <div className="post-desc">
-            相对于地理的分布，更有利于对比城市间各种指标数据间的<b>差异程度</b>并体现<b>排序关系</b>。
+              <FormattedMessage {...messages.idea1desc1} />
+              <b><FormattedMessage {...messages.idea1desc2} /></b>
+              <FormattedMessage {...messages.idea1desc3} />
+              <b><FormattedMessage {...messages.idea1desc4} /></b>
+              <FormattedMessage {...messages.idea1desc1} />
             </div>
           </div>
         </div>
@@ -50,10 +54,12 @@ export default class AboutUs extends React.PureComponent {
           </figure>
           <div className="post-content">
             <h3>
-              尺度缩放 (Scaling)
+              <FormattedMessage {...messages.idea2title} />
             </h3>
             <div className="post-desc">
-            线性缩放保证精确的量化值，而对数缩放侧重考虑<b>长尾效应</b>，便于观察数值较小但数量众多的城市。
+              <FormattedMessage {...messages.idea2desc1} />
+              <b><FormattedMessage {...messages.idea2desc2} /></b>
+              <FormattedMessage {...messages.idea2desc3} />
             </div>
           </div>
         </div>
@@ -68,10 +74,12 @@ export default class AboutUs extends React.PureComponent {
           </figure>
           <div className="post-content">
             <h3>
-              时序变化 (Temporal dynamic)
+              <FormattedMessage {...messages.idea3title} />
             </h3>
             <div className="post-desc">
-            各项指标随日期增长的动态过程，展现各城市疫情发展的<b>动态性</b>。
+              <FormattedMessage {...messages.idea3desc1} />
+              <b><FormattedMessage {...messages.idea3desc2} /></b>
+              <FormattedMessage {...messages.idea3desc3} />
             </div>
           </div>
         </div>

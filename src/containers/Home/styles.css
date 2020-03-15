@@ -276,7 +276,13 @@ p{
   z-index: 99;
   opacity: 1;
 }
-
+.mainpage h1{
+  font-family: SourceHanSerifCN-Bold;
+}
+.mainpage p{
+  font-family: SourceHanSerifCN-Medium;
+  /* font-family: //SourceHanSans-Regular; */
+}
 @media screen and (max-width: 900px){
 
   .fp-viewing-firstPage-0 .language {

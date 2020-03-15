@@ -11,5 +11,29 @@
   "app.containers.AboutUs.author1Name": "孔令远",
   "app.containers.AboutUs.author2Name": "黄智仁",
   "app.containers.AboutUs.author3Name": "谭叶清",
-  "app.containers.NotFoundPage.header": "Page not found."
+
+  "app.containers.AboutUs.author1Task": "前端开发、系统设计",
+  "app.containers.AboutUs.author2Task": "数据处理、系统设计",
+  "app.containers.AboutUs.author3Task": "产品经理、系统设计",
+  "app.containers.AboutUs.homepage":"个人主页",
+  
+  "app.containers.NotFoundPage.header": "Page not found.",
+
+  "app.containers.Design.idea1title": "径向布局",
+  "app.containers.Design.idea2title": "尺度缩放",
+  "app.containers.Design.idea3title": "时序变化",
+  
+  "app.containers.Design.idea1desc1": "相对于地理的分布，更有利于对比城市间各种指标数据间的",
+  "app.containers.Design.idea1desc2": "差异程度",
+  "app.containers.Design.idea1desc3": "并体现",
+  "app.containers.Design.idea1desc4": "排序关系",
+  "app.containers.Design.idea1desc5": "。",
+
+  "app.containers.Design.idea2desc1": "线性缩放保证精确的量化值，而对数缩放侧重考虑",
+  "app.containers.Design.idea2desc2": "长尾效应",
+  "app.containers.Design.idea2desc3": "，便于观察数值较小但数量众多的城市。",
+
+  "app.containers.Design.idea3desc1": "各项指标随日期变化的动态过程，展现各城市疫情发展的",
+  "app.containers.Design.idea3desc2": "动态性",
+  "app.containers.Design.idea3desc3": "。"
 }

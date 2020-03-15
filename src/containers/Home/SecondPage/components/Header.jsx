@@ -44,6 +44,10 @@ class Header extends Component {
 					<FilterType filter="day_inc" {...{dataType}}>
 				      新增确诊
 				    </FilterType>
+					{"/ "}
+					<FilterType filter="day_now_confirm" {...{dataType}}>
+				      现存确诊
+				    </FilterType>
 		          </li>
 				  <li>
 		            <span>城市信息:</span>
@@ -104,7 +108,6 @@ class Header extends Component {
 					</li>
 					}
 		        </ul>
-		        {/* <span id="about"><a href="http://vis27.com">彩色说</a>制作发布</span> */}
 				<div className="select-group">
 					<SelectDate {...{dates,selectDate,selectedDate}}/>
 					<SelectCity 

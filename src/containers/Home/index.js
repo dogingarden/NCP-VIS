@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-07-29 08:40:18
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 09:32:47
+ * @LastEditTime: 2020-03-14 22:31:17
  */
 import React from 'react'
 import Wrapper from "./Wrapper";
@@ -111,7 +111,7 @@ class Home extends React.PureComponent {
               <div id="myContainer">
                 <div className="section" id="fistSlider">
                   <div className="slide">
-                    <div className="intro">
+                    <div className="intro mainpage">
                       <h1>
                         <FormattedMessage {...messages.title} />
                       </h1>

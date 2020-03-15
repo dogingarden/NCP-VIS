@@ -3,11 +3,11 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-01-07 14:03:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 13:21:43
+ * @LastEditTime: 2020-03-14 23:27:32
  */
 const combineData = function(data){
     let dates=[]
-    let arr = ["city_confirmedCount","city_curedCount","city_deadCount","GDP","POP","hospital","bed","doctor"]
+    let arr = ["city_confirmedCount","city_curedCount","city_deadCount","day_now_confirm","GDP","POP","hospital","bed","doctor"]
     let maxValue = {'day_inc': 0}
     arr.forEach(d=>{
         maxValue[d]=0
@@ -49,9 +49,15 @@ const combineData = function(data){
             }else{
                 d.day_inc = d['city_confirmedCount']-showData[i-1].data[cityI]['city_confirmedCount']
             }
+            //新增每日现存确诊
+            d.day_now_confirm = d['city_confirmedCount'] - d['city_curedCount'] - d['city_deadCount']
             //获取每日新增的最大值
             if(maxValue['day_inc'] < d.day_inc){
                 maxValue['day_inc'] = d.day_inc
+            }
+            //获取每日现存确诊的最大值
+            if(maxValue['day_now_confirm'] < d.day_now_confirm){
+                maxValue['day_now_confirm'] = d.day_now_confirm
             }
             //序号
             d.index = cityI

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 15:58:15
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 01:00:24
+ * @LastEditTime: 2020-03-14 22:05:03
  */
 /*
  * AboutUs Messages
@@ -26,6 +26,22 @@ export default defineMessages({
   },
   author3Name: {
     id: `${scope}.author3Name`,
+    defaultMessage: '',
+  },
+  author1Task: {
+    id: `${scope}.author1Task`,
+    defaultMessage: '',
+  },
+  author2Task: {
+    id: `${scope}.author2Task`,
+    defaultMessage: '',
+  },
+  author3Task: {
+    id: `${scope}.author3Task`,
+    defaultMessage: '',
+  },
+  homepage: {
+    id: `${scope}.homepage`,
     defaultMessage: '',
   },
 });

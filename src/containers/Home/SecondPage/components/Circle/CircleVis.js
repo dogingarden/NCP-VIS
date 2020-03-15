@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 22:23:04
+ * @LastEditTime: 2020-03-14 22:52:46
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
@@ -323,7 +323,10 @@ class CircleVis extends Component{
                 title = "医生数量："+d3.format(",")(parseInt(centerCity.doctor))+"位";
                 break;
             case "day_inc":
-                title = "新增确诊："+d3.format(",")(parseInt(centerCity.day_inc))+"位";
+                title = "新增确诊："+d3.format(",")(parseInt(centerCity.day_inc))+"人";
+                break;
+            case "day_now_confirm":
+                title = "现存确诊："+d3.format(",")(parseInt(centerCity.day_now_confirm))+"人";
                 break;
         } 
         if(centerCity.city===undefined){
@@ -361,7 +364,10 @@ class CircleVis extends Component{
                 title = d.city+"医生数量："+d3.format(",")(parseInt(d.doctor))+"位";
                 break;
             case "day_inc":
-                title = d.city+"新增确诊："+d3.format(",")(parseInt(d.day_inc))+"位";
+                title = d.city+"新增确诊："+d3.format(",")(parseInt(d.day_inc))+"人";
+                break;
+            case "day_now_confirm":
+                title = d.city+"现存确诊："+d3.format(",")(parseInt(d.day_now_confirm))+"人";
                 break;
         } 
         return title
