@@ -1,7 +1,9 @@
-import React from 'react';
-import createClass from 'create-react-class';
-import PropTypes from 'prop-types';
-import Select from 'react-select';
+import React from 'react'
+import createClass from 'create-react-class'
+import PropTypes from 'prop-types'
+import Select from 'react-select'
+import { FormattedMessage } from 'react-intl'
+import messages from '../messages'
 
 const dot = (color = 'rgb(252, 212, 13)') => ({
   alignItems: 'center',
@@ -87,7 +89,7 @@ const SelectCity = createClass({
     const { multi, multiValue, isClearable, value} = this.state
     const { citiesData , centerCity } = this.props
 
-    const placeholder = <span>选择城市</span>
+    const placeholder = <span><FormattedMessage {...messages.selectCity}/></span>
     let selectedCity
     if(centerCity!==value){
       selectedCity={ value: centerCity, label: centerCity }

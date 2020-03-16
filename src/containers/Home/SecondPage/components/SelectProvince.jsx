@@ -1,7 +1,10 @@
-import React from 'react';
-import createClass from 'create-react-class';
-import PropTypes from 'prop-types';
-import Select from 'react-select';
+import React from 'react'
+import createClass from 'create-react-class'
+import PropTypes from 'prop-types'
+import Select from 'react-select'
+import { FormattedMessage } from 'react-intl'
+import messages from '../messages'
+
 const dot = (color = 'rgb(204, 224, 151)') => ({
   alignItems: 'center',
   display: 'flex',
@@ -123,7 +126,7 @@ const SelectProvince = createClass({
   },
   render () {
     const { multi, multiValue, options, value, isClearable} = this.state;
-    const placeholder = <span>选对比省</span>;
+    const placeholder = <span><FormattedMessage {...messages.selectProvince}/></span>;
     return (
       <div id="select-province" width={500} 
         onWheel={(e) => this.handleScroll(e)}

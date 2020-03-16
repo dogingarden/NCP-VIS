@@ -3,11 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-03-07 10:07:34
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-14 21:29:58
+ * @LastEditTime: 2020-03-16 11:26:47
  */
 import React, { Component } from "react";
 import Switch from "react-switch";
 import * as d3 from 'd3'
+import { FormattedMessage } from 'react-intl'
+import messages from '../messages'
 
 class MenusSwitch extends Component {
   constructor() {
@@ -52,10 +54,14 @@ class MenusSwitch extends Component {
     return (
       <div className="switch-container">
         {this.state.checked &&
-            <span>隐藏菜单</span>
+            <span>
+              <FormattedMessage {...messages.hideMenus}/>
+            </span>
         }
         {!this.state.checked &&
-            <span>显示菜单</span>
+            <span>
+              <FormattedMessage {...messages.showMenus}/>
+            </span>
         }
         <Switch onChange={this.handleChange} checked={this.state.checked}
         uncheckedIcon={false}

@@ -3,11 +3,15 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-14 22:52:46
+ * @LastEditTime: 2020-03-16 13:44:53
  */
+import messages from '../../messages'
+import { injectIntl } from 'react-intl';
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import * as d3 from 'd3';
+
 //1856a3
 const normalColor="#6C3F60",centerColor="#fcd40d",provinceColor="#cce097";
 const opacity=0.7//0.6;
@@ -16,7 +20,11 @@ const strokeColor="#222222"//"#222222"
 class CircleVis extends Component{
     constructor(props) {
         super(props);
-        this.barContainer=null;
+        const { intl } = this.props
+
+        this.formatMessage = intl.formatMessage
+
+        this.barContainer=null
     }
     shouldComponentUpdate(nextProps, nextState) {
         const { bgType ,dataType,centerCity,selectedProvince,width,height,selectedDate,radiusType,distanceType} = this.props;
@@ -299,34 +307,44 @@ class CircleVis extends Component{
         // eslint-disable-next-line default-case
         switch (dataType) {
             case "POP":
-                title ="人口："+d3.format(",")(parseInt(centerCity.POP))+"万";
+                title = this.formatMessage(messages.population) + "：" + 
+                    d3.format(",")(parseInt(centerCity.POP)) + this.formatMessage(messages.unitWan) ;
                 break;
             case "GDP":
-                title = "GDP："+d3.format(",")(parseInt(centerCity.GDP))+"亿";
-                 break;
+                title = this.formatMessage(messages.GDP) + "：" +
+                    d3.format(",")(parseInt(centerCity.GDP)) + this.formatMessage(messages.unitYi) ;
+                break;
             case "city_confirmedCount":
-                title = "确诊病例："+d3.format(",")(parseInt(centerCity.city_confirmedCount))+"人";
-                 break;
+                title = this.formatMessage(messages.confirmed) + "：" + 
+                    d3.format(",")(parseInt(centerCity.city_confirmedCount)) + this.formatMessage(messages.unitRen) ;
+                break;
             case "city_curedCount":
-                title = "治愈病例："+d3.format(",")(parseInt(centerCity.city_curedCount))+"人";
-                 break;
+                title = this.formatMessage(messages.cured) + "：" + 
+                    d3.format(",")(parseInt(centerCity.city_curedCount)) + this.formatMessage(messages.unitRen) ;
+                break;
             case "city_deadCount":
-                title = "死亡病例："+d3.format(",")(parseInt(centerCity.city_deadCount))+"人";
-                 break;
+                title =  this.formatMessage(messages.dead) + "："+
+                    d3.format(",")(parseInt(centerCity.city_deadCount)) + this.formatMessage(messages.unitRen) ;
+                break;
             case "hospital":
-                title = "医院数量："+d3.format(",")(parseInt(centerCity.hospital))+"个";
-                 break;
+                title =  this.formatMessage(messages.hospital) + "：" + 
+                    d3.format(",")(parseInt(centerCity.hospital)) + this.formatMessage(messages.unitGe) ;
+                break;
             case "bed":
-                title = "病床数量："+d3.format(",")(parseInt(centerCity.bed))+"张";
+                title = this.formatMessage(messages.bed) + "：" + 
+                    d3.format(",")(parseInt(centerCity.bed)) + this.formatMessage(messages.unitZhang) ;
                 break;
             case "doctor":
-                title = "医生数量："+d3.format(",")(parseInt(centerCity.doctor))+"位";
+                title = this.formatMessage(messages.doctor) + "：" + 
+                    d3.format(",")(parseInt(centerCity.doctor)) + this.formatMessage(messages.unitWei) ;
                 break;
             case "day_inc":
-                title = "新增确诊："+d3.format(",")(parseInt(centerCity.day_inc))+"人";
+                title = this.formatMessage(messages.newlyConfirmed) + "：" + 
+                    d3.format(",")(parseInt(centerCity.day_inc)) + this.formatMessage(messages.unitRen) ;
                 break;
             case "day_now_confirm":
-                title = "现存确诊："+d3.format(",")(parseInt(centerCity.day_now_confirm))+"人";
+                title =  this.formatMessage(messages.exitingConfirmed) + "：" + 
+                    d3.format(",")(parseInt(centerCity.day_now_confirm)) + this.formatMessage(messages.unitRen) ;
                 break;
         } 
         if(centerCity.city===undefined){
@@ -340,34 +358,45 @@ class CircleVis extends Component{
         // eslint-disable-next-line default-case
         switch (dataType) {
             case "POP":
-                title = d.city+"人口："+d3.format(",")(parseInt(d.POP))+"万";
+                title = d.city + this.formatMessage(messages.population) + "：" + 
+                    d3.format(",")(parseInt(d.POP)) + this.formatMessage(messages.unitWan) ;
                 break;
             case "GDP":
-                title = d.city+"GDP："+d3.format(",")(parseInt(d.GDP))+"亿";
+                title = d.city + this.formatMessage(messages.GDP) + "：" + 
+                    d3.format(",")(parseInt(d.GDP)) +this.formatMessage(messages.unitYi);
                  break;
             case "city_confirmedCount":
-                title = d.city+"确诊病例："+d3.format(",")(parseInt(d.city_confirmedCount))+"人";
+                console.log(this.formatMessage(messages.unitRen))
+                title = d.city + this.formatMessage(messages.confirmed) + "：" + 
+                    d3.format(",")(parseInt(d.city_confirmedCount))+this.formatMessage(messages.unitRen);
                  break;
             case "city_curedCount":
-                title = d.city+"治愈病例："+d3.format(",")(parseInt(d.city_curedCount))+"人";
+                title = d.city+this.formatMessage(messages.cured)+"："+
+                    d3.format(",")(parseInt(d.city_curedCount))+this.formatMessage(messages.unitRen);
                  break;
             case "city_deadCount":
-                title = d.city+"死亡病例："+d3.format(",")(parseInt(d.city_deadCount))+"人";
+                title = d.city+this.formatMessage(messages.dead)+"："+
+                    d3.format(",")(parseInt(d.city_deadCount))+this.formatMessage(messages.unitRen);
                  break;
             case "hospital":
-                title = d.city+"医院数量："+d3.format(",")(parseInt(d.hospital))+"个";
+                title = d.city+this.formatMessage(messages.hospital)+"："+
+                    d3.format(",")(parseInt(d.hospital))+this.formatMessage(messages.unitGe);
                  break;
             case "bed":
-                title = d.city+"病床数量："+d3.format(",")(parseInt(d.bed))+"张";
+                title = d.city + this.formatMessage(messages.bed) + "："+
+                    d3.format(",")(parseInt(d.bed)) + this.formatMessage(messages.unitZhang);
                 break;
             case "doctor":
-                title = d.city+"医生数量："+d3.format(",")(parseInt(d.doctor))+"位";
+                title = d.city+this.formatMessage(messages.doctor)+"："+
+                d3.format(",")(parseInt(d.doctor)) + this.formatMessage(messages.unitWei);
                 break;
             case "day_inc":
-                title = d.city+"新增确诊："+d3.format(",")(parseInt(d.day_inc))+"人";
+                title = d.city+this.formatMessage(messages.newlyConfirmed)+"："+
+                d3.format(",")(parseInt(d.day_inc)) + this.formatMessage(messages.unitRen);
                 break;
             case "day_now_confirm":
-                title = d.city+"现存确诊："+d3.format(",")(parseInt(d.day_now_confirm))+"人";
+                title = d.city+this.formatMessage(messages.exitingConfirmed)+"："+
+                d3.format(",")(parseInt(d.day_now_confirm)) + this.formatMessage(messages.unitRen);
                 break;
         } 
         return title
@@ -504,4 +533,4 @@ class CircleVis extends Component{
         );
     }
 }
-export default CircleVis
+export default injectIntl(CircleVis)

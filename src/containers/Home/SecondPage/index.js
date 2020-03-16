@@ -3,21 +3,17 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 16:36:09
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-07 10:04:19
+ * @LastEditTime: 2020-03-16 10:37:14
  */
 
 import React from 'react'
-// import { FormattedMessage } from 'react-intl'
-// import messages from '../messages'
+
 import './styles.css'
 import Wrapper from "./Wrapper";
 import App from './components/index'
 
 export default class SecondPage extends React.Component {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   const { dates } = this.props
-  //   return dates.selected !== nextProps.dates.selected
-  // }
+
   getShowData(citiesData,selectedDate,dataType){
     let showData=[]
     //筛选日期

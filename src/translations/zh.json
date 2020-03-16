@@ -8,6 +8,7 @@
   "app.containers.HomePage.desc2": " 通过可视化的方式展示了中国各个城市病情状况，使用地理布局和径向布局的形式来探索城市间的疫情变化趋势与关联。",
   "app.containers.LocaleToggle.zh": "中文",
   "app.containers.LocaleToggle.en": "ENGLISH",
+
   "app.containers.AboutUs.author1Name": "孔令远",
   "app.containers.AboutUs.author2Name": "黄智仁",
   "app.containers.AboutUs.author3Name": "谭叶清",
@@ -35,5 +36,55 @@
 
   "app.containers.Design.idea3desc1": "各项指标随日期变化的动态过程，展现各城市疫情发展的",
   "app.containers.Design.idea3desc2": "动态性",
-  "app.containers.Design.idea3desc3": "。"
+  "app.containers.Design.idea3desc3": "。",
+
+  "app.containers.DataVis.PlagueData": "疫情数据",
+  "app.containers.DataVis.confirmed": "确诊",
+  "app.containers.DataVis.cured": "治愈",
+  "app.containers.DataVis.dead": "死亡",
+  "app.containers.DataVis.newlyConfirmed": "新增确诊",
+  "app.containers.DataVis.exitingConfirmed": "现有确诊",
+
+  "app.containers.DataVis.cityInfo": "城市信息",
+  "app.containers.DataVis.population": "人口",
+  "app.containers.DataVis.GDP": "GDP",
+  "app.containers.DataVis.hospital": "医院",
+  "app.containers.DataVis.bed": "病床",
+  "app.containers.DataVis.doctor": "医生",
+
+  "app.containers.DataVis.layoutType": "布局方式",
+  "app.containers.DataVis.radial": "径向布局",
+  "app.containers.DataVis.geo": "地理布局",
+
+  "app.containers.DataVis.areaRatio": "面积比例",
+  "app.containers.DataVis.linear": "线性",
+  "app.containers.DataVis.log": "对数",
+
+  "app.containers.DataVis.distance": "距离度量",
+
+  "app.containers.DataVis.hideMenus": "隐藏菜单",
+  "app.containers.DataVis.showMenus": "显示菜单",
+
+  "app.containers.DataVis.selectCity": "选择城市",
+  "app.containers.DataVis.selectProvince": "对比省份",
+
+
+  "app.containers.DataVis.valueDifference": "数值差异",
+  "app.containers.DataVis.small": "小",
+  "app.containers.DataVis.big": "大",
+  "app.containers.DataVis.geoDistance": "地理距离",
+  "app.containers.DataVis.far": "远",
+  "app.containers.DataVis.near": "近",
+
+  "app.containers.DataVis.valueBig": "大",
+  "app.containers.DataVis.valueSmall": "小",
+  "app.containers.DataVis.valueName": "数值大小",
+  "app.containers.DataVis.provinceSort": "省份排列",
+
+  "app.containers.DataVis.unitZhang": "张",
+  "app.containers.DataVis.unitWan": "万",
+  "app.containers.DataVis.unitGe": "个",
+  "app.containers.DataVis.unitYi": "亿",
+  "app.containers.DataVis.unitWei": "位",
+  "app.containers.DataVis.unitRen": "人"
 }

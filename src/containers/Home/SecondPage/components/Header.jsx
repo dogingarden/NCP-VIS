@@ -1,7 +1,8 @@
 
 import React, {  Component } from 'react';
 // import PropTypes from 'prop-types';
-
+import { FormattedMessage } from 'react-intl'
+import messages from '../messages'
 import SelectCity from "./SelectCity";
 import SelectProvince from "./SelectProvince";
 import SelectDate from "./SelectDate";
@@ -27,83 +28,91 @@ class Header extends Component {
 	            <div id="select-data"></div>
 		        <ul className="menus">
 		          <li>
-		            <span>疫情数据:</span>
+		            <span> 
+						<FormattedMessage {...messages.PlagueData}/>:
+					</span>
 		            {" "}
 					<FilterType filter="city_confirmedCount" {...{dataType}}>
-				      确诊
+						<FormattedMessage {...messages.confirmed}/>
 				    </FilterType>
 				    {"/ "}
 					<FilterType filter="city_curedCount" {...{dataType}}>
-				      治愈
+						<FormattedMessage {...messages.cured}/>
 				    </FilterType>
 					{"/ "}
 					<FilterType filter="city_deadCount" {...{dataType}}>
-				      死亡
+				    	<FormattedMessage {...messages.dead}/>
 				    </FilterType>
 					{"/ "}
 					<FilterType filter="day_inc" {...{dataType}}>
-				      新增确诊
+						<FormattedMessage {...messages.newlyConfirmed}/>
 				    </FilterType>
 					{"/ "}
 					<FilterType filter="day_now_confirm" {...{dataType}}>
-				      现存确诊
+						<FormattedMessage {...messages.exitingConfirmed}/>
 				    </FilterType>
 		          </li>
 				  <li>
-		            <span>城市信息:</span>
+		            <span>
+						<FormattedMessage {...messages.cityInfo}/>
+					:</span>
 		            {" "}
 				    <FilterType filter="POP" {...{dataType}}>
-				      人口
+						<FormattedMessage {...messages.population}/>
 				    </FilterType>
 				    {"/ "}
 				    <FilterType filter="GDP" {...{dataType}}>
-				      GDP
+						<FormattedMessage {...messages.GDP}/>
 				    </FilterType>
 					{"/ "}
 				    <FilterType filter="hospital" {...{dataType}}>
-				      医院
+						<FormattedMessage {...messages.hospital}/>
 				    </FilterType>
 					{"/ "}
 				    <FilterType filter="bed" {...{dataType}}>
-				      病床
+						<FormattedMessage {...messages.bed}/>
 				    </FilterType>
 					{"/ "}
 				    <FilterType filter="doctor" {...{dataType}}>
-				      医生
+				    	<FormattedMessage {...messages.doctor}/>
 				    </FilterType>
 		          </li>
 		          <li>
-		            <span>布局方式:</span>
+		            <span><FormattedMessage {...messages.layoutType}/>:</span>
 		            {" "}
-				     <FilterLink filter="RADIAL" {...{bgType}}>
-				      径向布局
+				    <FilterLink filter="RADIAL" {...{bgType}}>
+						<FormattedMessage {...messages.radial}/>
 				    </FilterLink>
 				    {"/"}
 				    <FilterLink filter="GEO" {...{bgType}}>
-				      地理布局
+						<FormattedMessage {...messages.geo}/>
 				    </FilterLink> 
 				  </li>
 				  <li>
-		            <span>面积比例:</span>
+		            <span>
+						<FormattedMessage {...messages.areaRatio}/>
+					:</span>
 		            {" "}
 				    <FilterRadius filter="scaleLinear" {...{radiusType}}>
-				      线性
+						<FormattedMessage {...messages.linear}/>
 				    </FilterRadius>
 				    {"/"}
 				    <FilterRadius filter="scaleLog" {...{radiusType}}>
-					  对数
+						<FormattedMessage {...messages.log}/>
 				    </FilterRadius> 
 				  </li>
 				  {bgType==="RADIAL" &&
 					<li>
-						<span>距离度量:</span>
+						<span>
+							<FormattedMessage {...messages.distance}/>	
+						:</span>
 						{" "}
 						<FilterDistance filter="scaleLinear" {...{distanceType}}>
-						线性
+							<FormattedMessage {...messages.linear}/>
 						</FilterDistance>
 						{"/"}
 						<FilterDistance filter="scaleLog" {...{distanceType}}>
-						对数
+							<FormattedMessage {...messages.log}/>
 						</FilterDistance> 
 					</li>
 					}

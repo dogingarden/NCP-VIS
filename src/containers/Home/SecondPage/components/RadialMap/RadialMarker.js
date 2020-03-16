@@ -3,11 +3,10 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 22:20:15
+ * @LastEditTime: 2020-03-16 14:31:13
  */
 
 import React, { Component } from 'react'
-
 const BlankColor = 'rgb(229, 229, 227)'//'#159BC9'//
 const TextColor = 'rgb(229, 229, 227)'
 const TextSize = 14
@@ -16,15 +15,10 @@ const StrokeWidth = 1
 // Combine array of colors and quantize scale to pick fill color
 // Return a <path> element
 class RadialMarker extends Component {
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     const { feature } = this.props
-    //     return feature.near !== nextProps.feature.near
-    // }
+
     render() {
         const { arc, feature,feature2, outerRadius } = this.props;
         const markerArc = arc
-            // .outerRadius(function(d) { return rl(67.5); })
-            // .startAngle(0)
             .startAngle(Math.PI*3/4)
             .endAngle(Math.PI/2)
         let color = BlankColor
@@ -58,7 +52,7 @@ class RadialMarker extends Component {
                     >
                         <textPath 
                             xlinkHref={"#axispath-value"}
-                            startOffset="2%"
+                            startOffset="5%"
                         >
                             {feature2.near}
                         </textPath>
@@ -72,7 +66,7 @@ class RadialMarker extends Component {
                     >
                         <textPath 
                             xlinkHref={"#axispath-value"}
-                            startOffset="48%"
+                            startOffset="45%"
                         >
                             {feature2.far}
                         </textPath>
@@ -102,7 +96,7 @@ class RadialMarker extends Component {
                  >
                     <textPath 
                         xlinkHref={"#axispath"}
-                        startOffset="96%"
+                        startOffset="93%"
                     >
                         {feature.near}
                     </textPath>
@@ -116,7 +110,7 @@ class RadialMarker extends Component {
                  >
                     <textPath 
                         xlinkHref={"#axispath"}
-                        startOffset="3%"
+                        startOffset="7%"
                     >
                         {feature.far}
                     </textPath>
