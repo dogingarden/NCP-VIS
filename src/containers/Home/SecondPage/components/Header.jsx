@@ -28,7 +28,7 @@ class Header extends Component {
 	            <div id="select-data"></div>
 		        <ul className="menus">
 		          <li>
-		            <span> 
+		            <span className="header"> 
 						<FormattedMessage {...messages.PlagueData}/>:
 					</span>
 		            {" "}
@@ -53,7 +53,7 @@ class Header extends Component {
 				    </FilterType>
 		          </li>
 				  <li>
-		            <span>
+		            <span className="header">
 						<FormattedMessage {...messages.cityInfo}/>
 					:</span>
 		            {" "}
@@ -78,7 +78,9 @@ class Header extends Component {
 				    </FilterType>
 		          </li>
 		          <li>
-		            <span><FormattedMessage {...messages.layoutType}/>:</span>
+		            <span className="header">
+						<FormattedMessage {...messages.layoutType}/>:
+					</span>
 		            {" "}
 				    <FilterLink filter="RADIAL" {...{bgType}}>
 						<FormattedMessage {...messages.radial}/>
@@ -89,7 +91,7 @@ class Header extends Component {
 				    </FilterLink> 
 				  </li>
 				  <li>
-		            <span>
+		            <span className="header">
 						<FormattedMessage {...messages.areaRatio}/>
 					:</span>
 		            {" "}
@@ -103,7 +105,7 @@ class Header extends Component {
 				  </li>
 				  {bgType==="RADIAL" &&
 					<li>
-						<span>
+						<span className="header">
 							<FormattedMessage {...messages.distance}/>	
 						:</span>
 						{" "}
@@ -122,8 +124,6 @@ class Header extends Component {
 					<SelectCity 
 						{...{changeCenter, centerCity, citiesData}}/>
 					<SelectProvince {...{citiesData,selectProvince,selectedProvince}}/>
-					
-				
 				</div>
 				
 		    </div>

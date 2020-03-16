@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 12:05:58
+ * @LastEditTime: 2020-03-16 22:37:19
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -22,13 +22,18 @@ const Wrapper = styled.div`
     & .switch-container span{
         display: block;
     }
+    & .axislabel{
+        font-size: 14px;
+    }
     @media screen and (max-width: 900px) {
         & .switch-container{
             left: 50%;
             transform: translateX(-50%);
             bottom: 5px;
         }
-        
+        & .axislabel{
+            font-size: 11px;
+        }
     }
 `;
 

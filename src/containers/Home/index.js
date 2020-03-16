@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-07-29 08:40:18
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-14 22:31:17
+ * @LastEditTime: 2020-03-16 21:26:47
  */
 import React from 'react'
 import Wrapper from "./Wrapper";
@@ -62,7 +62,7 @@ const fullpageOptions = {
   slidesNavigation: true,
   scrollOverflow: true,
   scrollingSpeed: 1000,
-  normalScrollElements: ' .select-group',
+  normalScrollElements: '.select-group',
 };
 
 class Home extends React.PureComponent {

@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 13:44:53
+ * @LastEditTime: 2020-03-16 23:26:38
  */
 import messages from '../../messages'
 import { injectIntl } from 'react-intl';
@@ -224,7 +224,7 @@ class CircleVis extends Component{
 
         let barContainer=d3.select("#select-data").select("svg");
 
-        barContainer.select("text")
+        d3.select("#select-data").select("span")
             .text(d=>{
                 return this.getBarText(dataType,centerCity)
             });   
@@ -287,7 +287,7 @@ class CircleVis extends Component{
                     .attr("id","reactMarker")
                     .attr("height",10)
                     .attr("width",3)
-                    .attr("transform",()=>{ return "translate(" + (barX(d[dataType]))+",20)"; })
+                    .attr("transform",()=>{ return "translate(" + (barX(d[dataType]))+",0)"; })
                     // .attr("transform","translate(50,10)")
                     .attr("fill",normalColor);
             })
@@ -304,15 +304,26 @@ class CircleVis extends Component{
     getBarText(dataType,centerCity){
 
         let title=''
+        const locale = this.props.intl.locale
         // eslint-disable-next-line default-case
         switch (dataType) {
             case "POP":
-                title = this.formatMessage(messages.population) + "：" + 
-                    d3.format(",")(parseInt(centerCity.POP)) + this.formatMessage(messages.unitWan) ;
+                if(locale==='zh'){
+                    title = this.formatMessage(messages.population) + "：" + 
+                        d3.format(",")(parseInt(centerCity.POP)) + this.formatMessage(messages.unitWan) ;
+                }else{
+                    title = this.formatMessage(messages.population) + "：" + 
+                        d3.format(",")(parseInt(centerCity.POP*10)) + this.formatMessage(messages.unitWan) ;
+                }
                 break;
             case "GDP":
-                title = this.formatMessage(messages.GDP) + "：" +
-                    d3.format(",")(parseInt(centerCity.GDP)) + this.formatMessage(messages.unitYi) ;
+                if(locale==='zh'){
+                    title = this.formatMessage(messages.GDP) + "：" +
+                        d3.format(",")(parseInt(centerCity.GDP)) + this.formatMessage(messages.unitYi) ;
+                }else{
+                    title = this.formatMessage(messages.GDP) + "：" +
+                        d3.format(",")(parseInt(centerCity.GDP/10)) + this.formatMessage(messages.unitYi) ;
+                }
                 break;
             case "city_confirmedCount":
                 title = this.formatMessage(messages.confirmed) + "：" + 
@@ -355,18 +366,30 @@ class CircleVis extends Component{
     getMouseOverText(d,dataType){
         
         let title=''
+        const locale = this.props.intl.locale
         // eslint-disable-next-line default-case
         switch (dataType) {
+            
             case "POP":
-                title = d.city + this.formatMessage(messages.population) + "：" + 
+                if(locale==='zh'){
+                    title = d.city + this.formatMessage(messages.population) + "：" + 
                     d3.format(",")(parseInt(d.POP)) + this.formatMessage(messages.unitWan) ;
+                }else{
+                    title = d.city + this.formatMessage(messages.population) + "：" + 
+                        d3.format(",")(parseInt(d.POP*10)) + this.formatMessage(messages.unitWan) ;
+                }
+                
                 break;
             case "GDP":
-                title = d.city + this.formatMessage(messages.GDP) + "：" + 
+                if(locale==='zh'){
+                    title = d.city + this.formatMessage(messages.GDP) + "：" + 
                     d3.format(",")(parseInt(d.GDP)) +this.formatMessage(messages.unitYi);
-                 break;
+                }else{
+                    title = d.city + this.formatMessage(messages.GDP) + "：" + 
+                    d3.format(",")(parseInt(d.GDP/10)) +this.formatMessage(messages.unitYi);
+                }
+                break;
             case "city_confirmedCount":
-                console.log(this.formatMessage(messages.unitRen))
                 title = d.city + this.formatMessage(messages.confirmed) + "：" + 
                     d3.format(",")(parseInt(d.city_confirmedCount))+this.formatMessage(messages.unitRen);
                  break;
@@ -415,24 +438,24 @@ class CircleVis extends Component{
             );
         //设置显示bar
 
-
+        d3.select("#select-data").append("span")
+            .attr("transform","translate(0,0)")
+            .text(d=>{
+                return this.getBarText(dataType,centerCity)
+            })
+            // .attr("text-anchor","start")
+            // .attr("alignment-baseline","middle");
+            ;   
         this.barContainer=d3.select("#select-data")
             .append("svg")
             .attr("width",130)
             .attr("height",50);
 
-        this.barContainer.append("text")
-            .attr("transform","translate(0,12)")
-            .text(d=>{
-                return this.getBarText(dataType,centerCity)
-            })
-            .attr("text-anchor","start")
-            .attr("alignment-baseline","middle");
-            ;   
+        
         this.barContainer.append("rect")
             .attr("height",10)
             .attr("width",d=>{ return barX(centerCity[dataType]); })
-            .attr("transform","translate(0,20)")
+            .attr("transform","translate(0,0)")
             .attr("fill",centerColor);
 
         circles.enter().append('circle')

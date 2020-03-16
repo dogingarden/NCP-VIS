@@ -3,13 +3,13 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 14:31:13
+ * @LastEditTime: 2020-03-16 22:35:05
  */
 
 import React, { Component } from 'react'
 const BlankColor = 'rgb(229, 229, 227)'//'#159BC9'//
 const TextColor = 'rgb(229, 229, 227)'
-const TextSize = 14
+// const TextSize = 14
 // const StrokeColor = 'rgb(174, 174, 174)'
 const StrokeWidth = 1
 // Combine array of colors and quantize scale to pick fill color
@@ -21,6 +21,7 @@ class RadialMarker extends Component {
         const markerArc = arc
             .startAngle(Math.PI*3/4)
             .endAngle(Math.PI/2)
+        
         let color = BlankColor
         let lineWindth = StrokeWidth
         return (
@@ -48,7 +49,7 @@ class RadialMarker extends Component {
                         dx={0}
                         style={{fill:TextColor}}
                         textAnchor="middle"
-                        fontSize={TextSize}
+                        // fontSize={TextSize}
                     >
                         <textPath 
                             xlinkHref={"#axispath-value"}
@@ -61,7 +62,7 @@ class RadialMarker extends Component {
                         dy={-5}
                         dx={0}
                         style={{fill:TextColor}}
-                        fontSize={TextSize}
+                        // fontSize={TextSize}
                         textAnchor="middle"
                     >
                         <textPath 
@@ -75,7 +76,7 @@ class RadialMarker extends Component {
                         dy={-5}
                         dx={0}
                         style={{fill:TextColor}}
-                        fontSize={TextSize}
+                        // fontSize={TextSize}
                         textAnchor="middle"
                         letterSpacing="2"
                     >
@@ -92,11 +93,11 @@ class RadialMarker extends Component {
                     dx={0}
                     style={{fill:TextColor}}
                     textAnchor="middle"
-                    fontSize={TextSize}
+                    // fontSize={TextSize}
                  >
                     <textPath 
                         xlinkHref={"#axispath"}
-                        startOffset="93%"
+                        startOffset="45%"
                     >
                         {feature.near}
                     </textPath>
@@ -105,12 +106,12 @@ class RadialMarker extends Component {
                     dy={-5}
                     dx={0}
                     style={{fill:TextColor}}
-                    fontSize={TextSize}
+                    // fontSize={TextSize}
                     textAnchor="middle"
                  >
                     <textPath 
                         xlinkHref={"#axispath"}
-                        startOffset="7%"
+                        startOffset="4%"
                     >
                         {feature.far}
                     </textPath>
@@ -119,13 +120,13 @@ class RadialMarker extends Component {
                     dy={-5}
                     dx={0}
                     style={{fill:TextColor}}
-                    fontSize={TextSize}
+                    // fontSize={TextSize}
                     textAnchor="middle"
                     letterSpacing="2"
                  >
                     <textPath 
                         xlinkHref={"#axispath"}
-                        startOffset="50%"
+                        startOffset="25%"
                     >
                         {feature.distance}
                     </textPath>

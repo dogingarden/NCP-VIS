@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-03-07 10:07:34
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 11:26:47
+ * @LastEditTime: 2020-03-16 21:15:00
  */
 import React, { Component } from "react";
 import Switch from "react-switch";
@@ -19,7 +19,6 @@ class MenusSwitch extends Component {
   }
 
   handleChange(checked) {
-    console.log(d3.select("#selectorcontainer"))
     if(!checked){
         d3.select("#selectorcontainer")
             .transition()

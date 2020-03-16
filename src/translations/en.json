@@ -38,25 +38,25 @@
   "app.containers.Design.idea3desc3": " of the epidemic situation in each city.",
 
 
-  "app.containers.DataVis.PlagueData": "Plague data",
-  "app.containers.DataVis.confirmed": "confirmed",
-  "app.containers.DataVis.cured": "cured",
-  "app.containers.DataVis.dead": "dead",
-  "app.containers.DataVis.newlyConfirmed": "newly confirmed",
-  "app.containers.DataVis.exitingConfirmed": "exiting confirmed",
+  "app.containers.DataVis.PlagueData": "Coronavirus Cases",
+  "app.containers.DataVis.confirmed": "Infected",
+  "app.containers.DataVis.cured": "Recovered",
+  "app.containers.DataVis.dead": "Deaths",
+  "app.containers.DataVis.newlyConfirmed": "Newly Infected",
+  "app.containers.DataVis.exitingConfirmed": "Currently Infected",
 
-  "app.containers.DataVis.cityInfo": "City Info",
+  "app.containers.DataVis.cityInfo": "City INFO",
   "app.containers.DataVis.population": "Population",
   "app.containers.DataVis.GDP": "GDP",
-  "app.containers.DataVis.hospital": "Hospital",
-  "app.containers.DataVis.bed": "Hospital Bed",
-  "app.containers.DataVis.doctor": "Doctor",
+  "app.containers.DataVis.hospital": " No. of Hospitals",
+  "app.containers.DataVis.bed": " No. of Hospital Beds",
+  "app.containers.DataVis.doctor": " No. of Doctors",
 
   "app.containers.DataVis.layoutType": "Layout",
   "app.containers.DataVis.radial": "Radial",
   "app.containers.DataVis.geo": "Geographical",
 
-  "app.containers.DataVis.areaRatio": "Area Ratio",
+  "app.containers.DataVis.areaRatio": "Figure",
   "app.containers.DataVis.linear": "Linear",
   "app.containers.DataVis.log": "Logarithmic",
 
@@ -65,13 +65,13 @@
   "app.containers.DataVis.hideMenus": "hide menus",
   "app.containers.DataVis.showMenus": "show menus",
 
-  "app.containers.DataVis.selectCity": "select city",
-  "app.containers.DataVis.selectProvince": "select province",
+  "app.containers.DataVis.selectCity": "select a city",
+  "app.containers.DataVis.selectProvince": "select a province",
   
   "app.containers.DataVis.valueDifference": "Similarity",
   "app.containers.DataVis.small": "Like",
   "app.containers.DataVis.big": "Unlike",
-  "app.containers.DataVis.geoDistance": "Geo Distance",
+  "app.containers.DataVis.geoDistance": "Distance",
   "app.containers.DataVis.far": "Away",
   "app.containers.DataVis.near": "Close",
 
@@ -79,12 +79,12 @@
   "app.containers.DataVis.valueBig": "Large",
   "app.containers.DataVis.valueSmall": "Small",
   "app.containers.DataVis.valueName": "Value",
-  "app.containers.DataVis.provinceSort": "Province",
+  "app.containers.DataVis.provinceSort": " Sort by Provinces",
 
   "app.containers.DataVis.unitZhang": " ",
-  "app.containers.DataVis.unitWan": "ten thousand",
+  "app.containers.DataVis.unitWan": " thousand",
   "app.containers.DataVis.unitGe": " ",
-  "app.containers.DataVis.unitYi": "hundred million",
+  "app.containers.DataVis.unitYi": " billion",
   "app.containers.DataVis.unitWei": " ",
   "app.containers.DataVis.unitRen": " "
 }

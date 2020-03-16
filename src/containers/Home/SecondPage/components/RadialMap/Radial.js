@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 22:13:11
+ * @LastEditTime: 2020-03-16 22:11:06
  */
 
 import React, { Component } from 'react';
@@ -17,11 +17,8 @@ class Radial extends Component {
 
     render() {
         const { arc, feature, index } = this.props;
-
         let color = BlankColor;
-        // let stroke = StrokeColor;
         let lineWindth = StrokeWidth;
-
 
         return (
             <g>

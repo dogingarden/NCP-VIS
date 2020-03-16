@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 22:14:09
+ * @LastEditTime: 2020-03-16 23:06:17
  */
 import React, { Component } from 'react';
 import SliderWrapper from './SliderWrapper'
@@ -183,7 +183,6 @@ class Slider extends Component {
       );
 
     if(centerCity===null){
-      console.log('0')
       d3.select("#slider-timeline")
         .select(".max-y")
         // .selectAll()

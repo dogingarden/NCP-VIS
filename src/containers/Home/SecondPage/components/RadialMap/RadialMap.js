@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 14:28:04
+ * @LastEditTime: 2020-03-16 22:10:27
  */
 import messages from '../../messages'
 import { injectIntl } from 'react-intl';
@@ -50,6 +50,7 @@ class RadialMap extends Component {
         this.outerRadius=max
         this.arc = d3.arc()
             .outerRadius(function(d) { return rl(d.value); })
+            .innerRadius(function(d) { return rl(d.value); })
             .startAngle(0)
             .endAngle(2 * Math.PI)
     }
@@ -59,15 +60,30 @@ class RadialMap extends Component {
     // If no data, do nothing (we might mount before data loads into props)
     render() {
             const { centerCity } = this.props
-            let feature = { 'near': this.formatMessage(messages.near), 'far': this.formatMessage(messages.far),
-                'distance':  this.formatMessage(messages.geoDistance),'value': 67.5}
-            let feature2 = { 'near': this.formatMessage(messages.small), 'far': this.formatMessage(messages.big),'distance':  this.formatMessage(messages.valueDifference),'value': 67.5}
+            let feature = { 
+                'near': this.formatMessage(messages.near), 
+                'far': this.formatMessage(messages.far),
+                'distance':  this.formatMessage(messages.geoDistance),
+                'value': 67.5
+            }
+            let feature2 = { 
+                'near': this.formatMessage(messages.small), 
+                'far': this.formatMessage(messages.big),
+                'distance':  this.formatMessage(messages.valueDifference),
+                'value': 67.5
+            }
             if(centerCity===''||centerCity===null||centerCity===undefined){
-                feature = { 'near': '', 'far': "",'distance': 
-                    this.formatMessage(messages.provinceSort),'value': 67.5}
-                feature2 = { 'near': this.formatMessage(messages.valueSmall), 
+                feature = { 
+                    'near': '', 
+                    'far': "",'distance': this.formatMessage(messages.provinceSort),
+                    'value': 67.5
+                }
+                feature2 = { 
+                    'near': this.formatMessage(messages.valueSmall), 
                     'far': this.formatMessage(messages.valueBig),
-                    'distance': this.formatMessage(messages.valueName),'value': 67.5}
+                    'distance': this.formatMessage(messages.valueName),
+                    'value': 67.5
+                }
             }
             
             this.updateScale(this.props)
