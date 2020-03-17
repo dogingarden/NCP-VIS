@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-16 22:09:44
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 23:26:38
+ * @LastEditTime: 2020-03-17 20:36:21
  */
 import messages from '../../messages'
 import { injectIntl } from 'react-intl';
@@ -365,60 +365,65 @@ class CircleVis extends Component{
     }
     getMouseOverText(d,dataType){
         
-        let title=''
+        let title='',name=''
         const locale = this.props.intl.locale
+        if(locale==='zh'){
+            name=d.city
+        }else{
+            name=d.en+' '
+        }
         // eslint-disable-next-line default-case
         switch (dataType) {
             
             case "POP":
                 if(locale==='zh'){
-                    title = d.city + this.formatMessage(messages.population) + "：" + 
+                    title = name + this.formatMessage(messages.population) + "：" + 
                     d3.format(",")(parseInt(d.POP)) + this.formatMessage(messages.unitWan) ;
                 }else{
-                    title = d.city + this.formatMessage(messages.population) + "：" + 
+                    title = name + this.formatMessage(messages.population) + "：" + 
                         d3.format(",")(parseInt(d.POP*10)) + this.formatMessage(messages.unitWan) ;
                 }
                 
                 break;
             case "GDP":
                 if(locale==='zh'){
-                    title = d.city + this.formatMessage(messages.GDP) + "：" + 
+                    title = name + this.formatMessage(messages.GDP) + "：" + 
                     d3.format(",")(parseInt(d.GDP)) +this.formatMessage(messages.unitYi);
                 }else{
-                    title = d.city + this.formatMessage(messages.GDP) + "：" + 
+                    title = name + this.formatMessage(messages.GDP) + "：" + 
                     d3.format(",")(parseInt(d.GDP/10)) +this.formatMessage(messages.unitYi);
                 }
                 break;
             case "city_confirmedCount":
-                title = d.city + this.formatMessage(messages.confirmed) + "：" + 
+                title = name + this.formatMessage(messages.confirmed) + "：" + 
                     d3.format(",")(parseInt(d.city_confirmedCount))+this.formatMessage(messages.unitRen);
                  break;
             case "city_curedCount":
-                title = d.city+this.formatMessage(messages.cured)+"："+
+                title = name +this.formatMessage(messages.cured)+"："+
                     d3.format(",")(parseInt(d.city_curedCount))+this.formatMessage(messages.unitRen);
                  break;
             case "city_deadCount":
-                title = d.city+this.formatMessage(messages.dead)+"："+
+                title = name +this.formatMessage(messages.dead)+"："+
                     d3.format(",")(parseInt(d.city_deadCount))+this.formatMessage(messages.unitRen);
                  break;
             case "hospital":
-                title = d.city+this.formatMessage(messages.hospital)+"："+
+                title = name +this.formatMessage(messages.hospital)+"："+
                     d3.format(",")(parseInt(d.hospital))+this.formatMessage(messages.unitGe);
                  break;
             case "bed":
-                title = d.city + this.formatMessage(messages.bed) + "："+
+                title = name + this.formatMessage(messages.bed) + "："+
                     d3.format(",")(parseInt(d.bed)) + this.formatMessage(messages.unitZhang);
                 break;
             case "doctor":
-                title = d.city+this.formatMessage(messages.doctor)+"："+
+                title = name +this.formatMessage(messages.doctor)+"："+
                 d3.format(",")(parseInt(d.doctor)) + this.formatMessage(messages.unitWei);
                 break;
             case "day_inc":
-                title = d.city+this.formatMessage(messages.newlyConfirmed)+"："+
+                title = name +this.formatMessage(messages.newlyConfirmed)+"："+
                 d3.format(",")(parseInt(d.day_inc)) + this.formatMessage(messages.unitRen);
                 break;
             case "day_now_confirm":
-                title = d.city+this.formatMessage(messages.exitingConfirmed)+"："+
+                title = name +this.formatMessage(messages.exitingConfirmed)+"："+
                 d3.format(",")(parseInt(d.day_now_confirm)) + this.formatMessage(messages.unitRen);
                 break;
         } 
