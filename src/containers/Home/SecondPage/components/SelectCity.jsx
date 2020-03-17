@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Select from 'react-select'
 import { FormattedMessage } from 'react-intl'
 import messages from '../messages'
+import { injectIntl } from 'react-intl';
 
 const dot = (color = 'rgb(252, 212, 13)') => ({
   alignItems: 'center',
@@ -67,10 +68,38 @@ const SelectCity = createClass({
     }
   },
   getOptions (data){
-    let index=data.map(d=>{
-      return  { value: d.city, label: d.city };
-    })
+    let index
+    const locale = this.props.intl.locale
+    if(locale==='zh'){
+      index=data.map(d=>{
+        return  { value: d.city, label: d.city };
+      })
+    }else{
+      index=data.map(d=>{
+        return  { value: d.city, label: d.en };
+      })
+    }
+    
     return index;
+  },
+  getSelectedCity(selectedCity, citiesData){
+    const locale = this.props.intl.locale
+    let selectItem
+    if(locale==='zh'){
+      citiesData.forEach(d=>{
+        if(d.city===selectedCity.value){
+          selectItem = { value: d.city, label: d.city };
+        }
+      })
+    }else{
+      citiesData.forEach(d=>{
+        if(d.city===selectedCity.value){
+          selectItem = { value: d.city, label: d.en };
+        }
+        
+      })
+    }
+    return selectItem
   },
   renderValue: function(option) {
     return <strong style={{ color: centerColor }}>{option.label}</strong>;
@@ -96,8 +125,11 @@ const SelectCity = createClass({
     }else{
       selectedCity={ value: value, label: value }
     }
+
     if(centerCity===null){
       selectedCity=null
+    }else{
+      selectedCity=this.getSelectedCity(selectedCity, citiesData)
     }
     // console.log(selectedCity)
     return (
@@ -122,4 +154,4 @@ const SelectCity = createClass({
     );
   }
 });
-export default SelectCity;
+export default injectIntl(SelectCity)
