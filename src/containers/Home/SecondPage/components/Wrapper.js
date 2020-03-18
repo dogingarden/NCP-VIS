@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 22:37:19
+ * @LastEditTime: 2020-03-18 09:05:49
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
             bottom: 5px;
         }
         & .axislabel{
-            font-size: 11px;
+            font-size: 9px;
         }
     }
 `;

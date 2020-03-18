@@ -5,7 +5,6 @@ import RadialMap from './RadialMap';
 class Background extends Component {
 	// shouldComponentUpdate(nextProps, nextState) {
     //     const { centerCity } = this.props
-    //     console.log(centerCity)
     //     return centerCity !== nextProps.centerCity && (centerCity===null||nextProps.centerCity===null)
     // }
     render() {

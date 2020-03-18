@@ -72,7 +72,6 @@ class CircleMap extends Component {
             // data.sort((city1, city2) => {
             //     return city1.province-city2.province;
             // })
-            // console.log(data)
             distance = data.map((city) => {
                 //配合log，距离至少应该是1
                 return city[props.dataType] + 1

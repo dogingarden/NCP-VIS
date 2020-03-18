@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-14 22:43:52
+ * @LastEditTime: 2020-03-18 08:51:30
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -88,13 +88,13 @@ const Wrapper = styled.div`
             float:left;
             width:calc(100% - 160px);
             text-align: left;
-            position: fixed;
-            top: 50%;
+            /*position: fixed;*/
+            /*top: 50%;*/
             /* left: 50%; */
             /* background-color: #000; */
             /* width: 50%; */
-            height: 50%;
-            -webkit-transform: translateX(-50%) translateY(-50%);
+            /* height: 50%;*/
+            /* -webkit-transform: translateX(-50%) translateY(-50%);*/
         }
         & h3{
             text-align: left;

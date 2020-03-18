@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 23:01:58
+ * @LastEditTime: 2020-03-18 09:01:31
  */
 import styled from 'styled-components';
 const HeaderWrapper = styled.div`
@@ -89,19 +89,18 @@ const HeaderWrapper = styled.div`
             -webkit-transition: all .3s ease-in;
         }
         & #select-date{
-            
             margin:0 auto; 
             float:unset;
             left: unset;
             position: relative;
             top: unset;
-            top:-1px;
+            // transform: translateY(-1px);
             transition: all 1s ease-in;
             -webkit-transition: all .3s ease-in;
         }
         & .menus{
             font-size: 11px;
-            width: 300px;
+            width: 260px;
             left: 150px;
             top: 70px;
             transition: all 1s ease-in;

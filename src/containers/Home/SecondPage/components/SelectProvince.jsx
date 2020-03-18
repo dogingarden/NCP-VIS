@@ -90,20 +90,21 @@ const SelectProvince = createClass({
       value: undefined
     };
   },
-  getSelectedCity(selectedCity, citiesData){
+  getSelectedProvince(province, data){
+    
     const locale = this.props.intl.locale
     let selectItem
     if(locale==='zh'){
-      citiesData.forEach(d=>{
-        if(d.city===selectedCity.value){
-          console.log({ value: d.city, label: d.city })
-          selectItem = { value: d.city, label: d.city };
+      data.forEach(d=>{
+        if(d.value===province){
+          
+          selectItem = { value: d.value, label: d.value };
         }
       })
     }else{
-      citiesData.forEach(d=>{
-        if(d.city===selectedCity.value){
-          selectItem = { value: d.city, label: d.en };
+      data.forEach(d=>{
+        if(d.value===province){
+          selectItem = { value: d.value, label: d.en };
         }
         
       })
@@ -112,18 +113,18 @@ const SelectProvince = createClass({
   },
   handleOnChange (value) {
     const { selectProvince } = this.props
-    const { multi, multiValue } = this.state;
-    if (multi) {
-      this.setState({ multiValue: [].concat(multiValue, value) });
-    } else {
-      this.setState({ value })
+    // const { multi, multiValue } = this.state;
+    // if (multi) {
+    //   this.setState({ multiValue: [].concat(multiValue, value) });
+    // } else {
+      // this.setState({ value })
       if(value===null){
         selectProvince(value)
       }else{
         selectProvince(value.value)
       }
       
-    }
+    // }
   },
   handleOnClose(){
     const { selectProvince } = this.props
@@ -154,7 +155,10 @@ const SelectProvince = createClass({
     e.nativeEvent.stopImmediatePropagation();
   },
   render () {
-    const { multi, multiValue, optionsData, value, isClearable} = this.state;
+    const { multi, multiValue, optionsData, isClearable} = this.state;
+    const { selectedProvince } = this.props
+    let showValue=this.getSelectedProvince(selectedProvince,optionsData)
+
     const placeholder = <span><FormattedMessage {...messages.selectProvince}/></span>;
     return (
       <div id="select-province" width={500} 
@@ -166,7 +170,7 @@ const SelectProvince = createClass({
           options={this.getOptions(optionsData)}
           onChange={this.handleOnChange}
           onClose={this.handleOnClose}
-          value={multi ? multiValue : value}
+          value={multi ? multiValue : showValue}
           placeholder={placeholder}
           valueRenderer={this.renderValue}
           isClearable={isClearable}

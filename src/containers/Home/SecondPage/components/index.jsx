@@ -64,7 +64,7 @@ class App extends React.Component {
                 <Header 
                     { ...{citiesData, changeCenter, 
                         selectProvince ,bgType, dataType,dates, selectedDate, selectDate,
-                        radiusType,
+                        radiusType,selectedProvince,
                         centerCity: ifHas===false?null : centerCity ,
                         distanceType
                     }}/>

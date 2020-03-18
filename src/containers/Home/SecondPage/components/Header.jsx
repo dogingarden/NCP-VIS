@@ -60,19 +60,19 @@ class Header extends Component {
 				    <FilterType filter="POP" {...{dataType}}>
 						<FormattedMessage {...messages.population}/>
 				    </FilterType>
-				    {"/ "}
+				    {"/"}
 				    <FilterType filter="GDP" {...{dataType}}>
 						<FormattedMessage {...messages.GDP}/>
 				    </FilterType>
-					{"/ "}
+					{"/"}
 				    <FilterType filter="hospital" {...{dataType}}>
 						<FormattedMessage {...messages.hospital}/>
 				    </FilterType>
-					{"/ "}
+					{"/"}
 				    <FilterType filter="bed" {...{dataType}}>
 						<FormattedMessage {...messages.bed}/>
 				    </FilterType>
-					{"/ "}
+					{"/"}
 				    <FilterType filter="doctor" {...{dataType}}>
 				    	<FormattedMessage {...messages.doctor}/>
 				    </FilterType>

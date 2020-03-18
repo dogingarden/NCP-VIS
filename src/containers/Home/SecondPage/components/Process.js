@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-21 00:37:22
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-11 13:30:12
+ * @LastEditTime: 2020-03-18 09:33:28
  */
 // import 'rc-progress/assets/index.css';
 import React, { Component } from 'react';
@@ -98,7 +98,7 @@ class Process extends Component {
     const containerStyle = {
       width: '300px',
     };    
-    // console.log(updateTimeline)
+    
     return (
       <ProcessWrapper className="process-container">
         <div className="button">

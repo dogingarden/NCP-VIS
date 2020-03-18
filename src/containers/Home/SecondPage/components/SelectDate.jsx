@@ -2,10 +2,38 @@ import React from 'react';
 import createClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-
+const dot = (color = 'rgb(252, 212, 13)') => ({
+  alignItems: 'center',
+  display: 'flex',
+  ':before': {
+    backgroundColor: color,
+    borderRadius: 10,
+    content: '" "',
+    display: 'block',
+    marginRight: 8,
+    height: 10,
+    width: 0,
+  },
+});
+// const colourStyles = {
+  
+//   input: styles => ({ ...styles, ...dot() }),
+//   placeholder: styles => ({ ...styles, ...dot() }),
+//   singleValue: (styles) => ({ ...styles, ...dot() }),
+//   clearIndicator:  (provided) => ({
+//     ...provided,
+//     padding: 0
+//   }),
+//   dropdownIndicator:  (provided) => ({
+//     ...provided,
+//     padding: 0
+//   }),
+// };
 const centerColor="#fcd40d";
 const colourStyles = {
-
+  input: styles => ({ ...styles, ...dot() }),
+  placeholder: styles => ({ ...styles, ...dot() }),
+  singleValue: (styles) => ({ ...styles, ...dot() }),
   clearIndicator:  (provided) => ({
     ...provided,
     padding: 0
@@ -68,6 +96,7 @@ const SelectDate = createClass({
       >
     
         <Select
+        
           multi={multi}
           styles={colourStyles}
           options={this.getOptions(dates)}

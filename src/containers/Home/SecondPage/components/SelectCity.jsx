@@ -131,7 +131,6 @@ const SelectCity = createClass({
     }else{
       selectedCity=this.getSelectedCity(selectedCity, citiesData)
     }
-    // console.log(selectedCity)
     return (
       <div id="select-city" width={500} 
         onWheel={ (e) => this.handleScroll(e) }

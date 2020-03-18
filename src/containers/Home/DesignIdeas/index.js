@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-13 16:36:09
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-14 21:51:01
+ * @LastEditTime: 2020-03-18 08:46:53
  */
 
 import React from 'react'
@@ -39,7 +39,7 @@ export default class AboutUs extends React.PureComponent {
               <b><FormattedMessage {...messages.idea1desc2} /></b>
               <FormattedMessage {...messages.idea1desc3} />
               <b><FormattedMessage {...messages.idea1desc4} /></b>
-              <FormattedMessage {...messages.idea1desc1} />
+              <FormattedMessage {...messages.idea1desc5} />
             </div>
           </div>
         </div>
