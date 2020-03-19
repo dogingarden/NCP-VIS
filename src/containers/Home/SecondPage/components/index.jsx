@@ -5,6 +5,7 @@ import CircleMap from './Circle';
 import Header from './Header';
 import Wrapper from './Wrapper'
 import MenusSwitch from './MenusSwitch'
+import Screenshot from './Screenshot'
 import Process from "./Process";
 
 class App extends React.Component {
@@ -60,7 +61,7 @@ class App extends React.Component {
         return (
             <Wrapper >
                 <MenusSwitch/>
-                
+                <Screenshot/>
                 <Header 
                     { ...{citiesData, changeCenter, 
                         selectProvince ,bgType, dataType,dates, selectedDate, selectDate,
@@ -69,7 +70,7 @@ class App extends React.Component {
                         distanceType
                     }}/>
                 <Process {...{dates, selectDate, selectedDate, allData, centerCity, dataType }}/>
-                <div className="svgContainer" ref={this.myRef}>
+                <div className="svgContainer" ref={this.myRef} id="svg-container">
                   <svg {...{width,height}} >
                     
                       <Background {...{chinaTopoJson, bgType, centerCity}}
