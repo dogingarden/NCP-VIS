@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-02-19 23:20:20
+ * @LastEditTime: 2020-03-20 09:17:06
  */
 
 import React, { Component } from 'react';
@@ -66,7 +66,7 @@ class CountyMap extends Component {
             // Loop through counties and draw <County> components
             // Add a single <path> for state borders
             return (
-                <g transform={`translate(${this.props.x}, ${this.props.y})`}>
+                <g transform={`translate(${this.props.x}, ${this.props.y})`} id="background-container">
                     {counties.map((feature) => (
                         <County geoPath={this.geoPath}
                                 feature={feature}

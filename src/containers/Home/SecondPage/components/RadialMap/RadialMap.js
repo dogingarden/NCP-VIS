@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-02-14 19:46:12
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-16 22:10:27
+ * @LastEditTime: 2020-03-20 09:16:55
  */
 import messages from '../../messages'
 import { injectIntl } from 'react-intl';
@@ -88,7 +88,7 @@ class RadialMap extends Component {
             
             this.updateScale(this.props)
             return (
-                <g transform={`translate(${this.props.width/2}, ${this.props.height/2})`}>
+                <g id="background-container" transform={`translate(${this.props.width/2}, ${this.props.height/2})`}>
                     {this.axes.map((feature,id) => (
                         <Radial arc={this.arc}
                                 feature={feature}

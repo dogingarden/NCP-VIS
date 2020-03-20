@@ -61,7 +61,7 @@ class App extends React.Component {
         return (
             <Wrapper >
                 <MenusSwitch/>
-                <Screenshot/>
+                <Screenshot {...{centerCity: ifHas===false?null : centerCity , selectedDate, dataType,citiesData}}/>
                 <Header 
                     { ...{citiesData, changeCenter, 
                         selectProvince ,bgType, dataType,dates, selectedDate, selectDate,

@@ -26,7 +26,7 @@ class Background extends Component {
 	    }
 	    if (bgType==="RADIAL"){
 	    	return(
-	    		<RadialMap  x={0}
+	    		<RadialMap  x={0} 
 	                        y={0}
 	                        {...{width, height,centerCity}}/>  
 	    	);

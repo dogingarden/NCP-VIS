@@ -9,3 +9,7 @@ body{
     font-family: 'SourceHanSerifCN-Bold';
     src:url("./font/SourceHanSerifCN-Bold.otf");
 }
+@font-face{
+    font-family: 'DIN-Medium';
+    src:url("./font/DIN-Medium.ttf");
+}
