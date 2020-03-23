@@ -3,11 +3,11 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-23 12:12:40
+ * @LastEditTime: 2020-03-23 12:30:26
  */
 import styled from 'styled-components';
 import bg from './images/virus-corona-2-scaled-big.jpg';
-import bgSmall from './images/virus-corona-2-scaled-small.jpg';
+// import bgSmall from './images/virus-corona-2-scaled-small.jpg';
 
 const Wrapper = styled.div`
     width:100%;
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     }
     @media screen and (max-width: 900px) {
         & #fistSlider{
-            background-image:  url(${bgSmall});
+            background-image:  sunset;
         }
     }
 `;
