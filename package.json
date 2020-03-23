@@ -35,7 +35,6 @@
     "redux": "^4.0.1",
     "redux-saga": "^1.0.3",
     "reselect": "^4.0.0",
-    "roughjs": "^3.1.0",
     "styled-components": "^4.3.1",
     "topojson": "^3.0.2",
     "velocity-react": "^1.4.3"

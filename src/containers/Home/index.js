@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-07-29 08:40:18
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-18 09:33:20
+ * @LastEditTime: 2020-03-23 12:17:57
  */
 import React from 'react'
 import Wrapper from "./Wrapper";
@@ -25,6 +25,7 @@ import {
   changeDistanceType
 } from './actions'
 
+import Loading from './Loading'
 import { 
   getLoading, 
   getFailed, 
@@ -79,7 +80,7 @@ class Home extends React.PureComponent {
       resizeScreen,
       selectDate
     } = this.props
-    
+
     if (citiesData[0]) {
       return (
         <Wrapper>
@@ -109,7 +110,7 @@ class Home extends React.PureComponent {
             {...fullpageOptions}
             render={() => (
               <div id="myContainer">
-                <div className="section" id="fistSlider">
+                <div className="section" id="fistSlider" >
                   <div className="slide">
                     <div className="intro mainpage">
                       <h1>
@@ -157,7 +158,9 @@ class Home extends React.PureComponent {
       )
     } else {
       return (
-        <Wrapper />
+        <Wrapper >
+          <Loading/>
+        </Wrapper>
       )
     }
 
