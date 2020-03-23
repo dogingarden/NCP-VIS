@@ -277,11 +277,10 @@ p{
   opacity: 1;
 }
 .mainpage h1{
-  font-family: SourceHanSerifCN-Bold;
+  font-family:  "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 .mainpage p{
-  font-family: SourceHanSerifCN-Medium;
-  /* font-family: //SourceHanSans-Regular; */
+  font-family:  "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 @media screen and (max-width: 900px){
 

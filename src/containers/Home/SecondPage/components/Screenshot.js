@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2020-03-07 10:07:34
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-23 12:04:24
+ * @LastEditTime: 2020-03-23 13:00:08
  */
 import React, { Component } from "react";
 // import Switch from "react-switch";
@@ -194,8 +194,19 @@ class Screenshot extends Component {
         .attr("src", QR)
         .attr("width", fontSize*2)
         .attr("height", fontSize*2)
-
-    
+    //menu hiden
+    d3.select("#selectorcontainer")
+        .transition()
+        .duration(300)
+        .attr("opacity",0)
+        .style("display","none")
+    d3.select(".process-container")
+        .transition()
+        .duration(300)
+        .attr("opacity",0)
+        .style("display","none")
+    d3.select("#tryhtml2canvas").style("display","none")
+    d3.select(".switch-container").style("display","none")
     setTimeout(() => {
       var svgElem = document.getElementsByTagName("svg-container");
       for (const node of svgElem) {
@@ -215,13 +226,28 @@ class Screenshot extends Component {
           let a = document.createElement('a');
           // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
           a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-          a.download = 'somefilename.jpg';
+          a.download = `${selectedDate}-${cityInfo.name}-${cityInfo.type+cityInfo.value+cityInfo.unit}.jpg`
           a.click();
           if(svgWidth<900){
             d3.select("#svg-container").style("transform", 'translateY(55px)')
           }
           
           d3.select("#svg-container").selectAll(".temp-text").remove()
+          //menu show
+          d3.select("#selectorcontainer")
+            .style("display","block")
+            .attr("opacity",0)
+            .transition()
+            .duration(300)
+            .attr("opacity",1)
+          d3.select(".process-container")
+            .style("display","block")
+            .attr("opacity",0)
+            .transition()
+            .duration(300)
+            .attr("opacity",1)
+          d3.select("#tryhtml2canvas").style("display","block")
+          d3.select(".switch-container").style("display","block")
           // this.props.onChangeCanvas(canvas);
           //
           // canvas.style.position = 'fixed';

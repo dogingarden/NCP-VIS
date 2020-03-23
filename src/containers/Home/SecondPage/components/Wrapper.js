@@ -3,7 +3,7 @@
  * @Description: A Vue/React Project File
  * @Date: 2019-06-19 17:09:39
  * @LastEditors: konglingyuan
- * @LastEditTime: 2020-03-23 12:31:06
+ * @LastEditTime: 2020-03-23 12:50:57
  */
 import styled from 'styled-components';
 const Wrapper = styled.div`
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
         padding: 0 20px;
         text-anchor: middle;
         alignment-baseline: middle;
-        // font-family: SourceHanSerifCN-Bold;
+        font-family:  "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
         text-align: left;
         width: 100%;
         // display: table-row;
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
         padding: 0 20px;
         text-anchor: middle;
         alignment-baseline: middle;
-        // font-family: DIN-Medium,SourceHanSerifCN-Bold;
+        font-family:  "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
         text-align: left;
         width: 100%;
         // display:table-cell;
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
     & .temp-image{
         text-anchor: middle;
         alignment-baseline: middle;
-        // font-family: SourceHanSerifCN-Bold;
+        font-family:  "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
         text-align: center;
         width: 100%;
         display: table-cell;
